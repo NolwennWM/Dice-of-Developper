@@ -1,3 +1,9 @@
+*[class], ::before, ::after
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 :root
 {
     --cube-size: 80cqmin;
@@ -42,15 +48,26 @@ main.container
     justify-content: center;
     align-items: center;
     perspective: calc(var(--cube-size) * 10);
-    container-name: cube-container;
-    & .cube
+    container: cube-container / size;
+    & .test
     {
+        container: cube / size;
         width: var(--cube-size);
         height: var(--cube-size);
         transform-style: preserve-3d;
+
+    }
+    & .cube
+    {
+        /* container: cube / size; */
+        /* width: var(--cube-size);
+        height: var(--cube-size); */
+        width: 100cqw;
+        height: 100cqh;
+        transform-style: preserve-3d;
         position: relative;
         transition: all var(--cube-rotation);
-        .face
+        & .face
         {
             position: absolute;
             width: inherit;
@@ -61,11 +78,11 @@ main.container
             text-transform: uppercase;
             font-size: 5em;
             backface-visibility: hidden;
-            translate: 0 0 calc(var(--cube-size) / 2 * -1);
+            translate: 0 0 calc(100cqw / 2 * -1);
             &.face-1
             {
                 background-color: lightblue;
-                translate: 0 0 calc(var(--cube-size) / 2);
+                translate: 0 0 calc(100cqw / 2);
             }
             &.face-2
             {
@@ -104,7 +121,7 @@ main.container
         }
         header#page-control:has(.input-link:checked) ~ main.container &
         {
-            animation: launch-dice 2s 2.4s linear 1 forwards;
+            animation: take-dice 1s linear, launch-dice 5s 1s linear 1 forwards;
         }
         header:has(#f1:checked) ~ main.container &
         {
@@ -137,6 +154,13 @@ main.container
         }
     }
 }
+@container cube (width < 70vmin) {
+    .face
+    {
+        color: red;
+    }
+}
+
 @keyframes launch-dice
 {
     0%
@@ -171,9 +195,17 @@ main.container
     }
 }
 @keyframes take-dice 
-{
-    100%
+{ 
+    0%
+    {
+        transform: translate(0, 0);
+    }
+    50%
     {
         transform: translate(100dvw, 100dvh);
     }   
+    100%
+    {
+        transform: translate(0, 0);
+    }
 }
