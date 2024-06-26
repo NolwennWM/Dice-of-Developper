@@ -1,0 +1,179 @@
+:root
+{
+    --cube-size: 80cqmin;
+    --cube-rotation: .4s linear; 
+    --cube-position: x 0;
+    --cube-start: x 0;
+}
+body
+{
+    height: 100dvh;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+header.portfolio-header
+{
+    position: relative;
+    z-index: 10;
+    & nav.cube-navigation
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        & .label-link
+        {
+            cursor: pointer;
+        }
+        & .input-link
+        {
+            display: none;
+            &:checked + .label-link
+            {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+main.container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: calc(var(--cube-size) * 10);
+    container-name: cube-container;
+    & .cube
+    {
+        width: var(--cube-size);
+        height: var(--cube-size);
+        transform-style: preserve-3d;
+        position: relative;
+        transition: all var(--cube-rotation);
+        .face
+        {
+            position: absolute;
+            width: inherit;
+            height: inherit;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-transform: uppercase;
+            font-size: 5em;
+            backface-visibility: hidden;
+            translate: 0 0 calc(var(--cube-size) / 2 * -1);
+            &.face-1
+            {
+                background-color: lightblue;
+                translate: 0 0 calc(var(--cube-size) / 2);
+            }
+            &.face-2
+            {
+                rotate: x -90deg;
+                transform-origin: bottom;
+                background-color: lightcoral;
+            }
+            &.face-3
+            {
+                rotate: y -90deg;
+                transform-origin: left;
+                background-color: lightgreen;
+            }
+            &.face-4
+            {
+                rotate: y 90deg;
+                transform-origin: right;
+                background-color: lightpink;
+            }
+            &.face-5
+            {
+                rotate: y 180deg;
+                background-color: lightgoldenrodyellow;
+            }
+            &.face-6
+            {
+                rotate: x 90deg;
+                transform-origin: top;
+                background-color: lightseagreen;
+            }
+        }
+        header#page-control:has(.input-link:active) ~ main.container &
+        {
+            /* scale: 0.2; */
+            animation: none !important;
+        }
+        header#page-control:has(.input-link:checked) ~ main.container &
+        {
+            animation: launch-dice 2s 2.4s linear 1 forwards;
+        }
+        header:has(#f1:checked) ~ main.container &
+        {
+            --cube-position: x 0;
+        }
+        header:has(#f2:checked) ~ main.container &
+        {
+            /* rotate: x 90deg;  */
+            --cube-position: x 90deg;
+        }
+        header:has(#f3:checked) ~ main.container &
+        {
+            /* rotate: y 90deg;  */
+            --cube-position: y 90deg;
+        }
+        header:has(#f4:checked) ~ main.container &
+        {
+            /* rotate: y -90deg;  */
+            --cube-position: y -90deg;
+        }
+        header:has(#f5:checked) ~ main.container &
+        {
+            /* rotate: y 180deg;  */
+            --cube-position: y 180deg;
+        }
+        header:has(#f6:checked) ~ main.container &
+        {
+            /* rotate: x -90deg;  */
+            --cube-position: x -90deg;
+        }
+    }
+}
+@keyframes launch-dice
+{
+    0%
+    {
+        rotate: inherit;
+    }
+    20%
+    {
+
+    }
+    40%
+    {
+        rotate: 0.5 1 2 360deg;
+        scale: 0.5 0.5 0.5;
+        translate: 0 0 calc(var(--cube-size) * 20 *-1);
+    }
+    60%
+    {
+        translate: 0 0 calc(var(--cube-size) * 20 *-1);
+        rotate: var(--cube-position);
+
+    }
+    80%
+    {
+
+    }
+    100%
+    {
+        rotate: var(--cube-position);
+        scale: 1;
+        translate: 0 0 0;
+    }
+}
+@keyframes take-dice 
+{
+    100%
+    {
+        transform: translate(100dvw, 100dvh);
+    }   
+}
