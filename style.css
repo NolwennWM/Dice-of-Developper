@@ -6,10 +6,12 @@
 }
 :root
 {
-    --cube-size: 80cqmin;
+    --cube-size: 90cqmin;
     --cube-rotation: .4s linear; 
-    --cube-position: x 0;
     --cube-start: x 0;
+    --cube-move-x: 0;
+    --cube-move-y: 0;
+    --cube-move-rotation: 0.5, 1, 2;
 }
 body
 {
@@ -27,6 +29,7 @@ header.portfolio-header
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-wrap: wrap;
         gap: 20px;
         & .label-link
         {
@@ -48,8 +51,8 @@ main.container
     justify-content: center;
     align-items: center;
     perspective: calc(var(--cube-size) * 10);
-    container: cube-container / size;
-    & .test
+    container: container / size;
+    & .cube-container
     {
         container: cube / size;
         width: var(--cube-size);
@@ -59,26 +62,19 @@ main.container
     }
     & .cube
     {
-        /* container: cube / size; */
-        /* width: var(--cube-size);
-        height: var(--cube-size); */
         width: 100cqw;
         height: 100cqh;
         transform-style: preserve-3d;
         position: relative;
-        transition: all var(--cube-rotation);
+        transition: rotate var(--cube-rotation);
         & .face
         {
             position: absolute;
             width: inherit;
             height: inherit;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-transform: uppercase;
-            font-size: 5em;
             backface-visibility: hidden;
             translate: 0 0 calc(100cqw / 2 * -1);
+            border: 2cqw solid black;
             &.face-1
             {
                 background-color: lightblue;
@@ -113,51 +109,66 @@ main.container
                 transform-origin: top;
                 background-color: lightseagreen;
             }
+            & .face-content
+            {
+                width: 100%;
+                height: 100%;
+                overflow-x: hidden;
+                overflow-y: auto;
+                scrollbar-width: thin;
+                padding: 1vmin;
+            }
         }
         header#page-control:has(.input-link:active) ~ main.container &
         {
-            /* scale: 0.2; */
             animation: none !important;
         }
         header#page-control:has(.input-link:checked) ~ main.container &
         {
-            animation: take-dice 1s linear, launch-dice 5s 1s linear 1 forwards;
+            /* animation: launch-dice 2s linear 1; */
         }
         header:has(#f1:checked) ~ main.container &
         {
-            --cube-position: x 0;
+            rotate: x 0;
+            --cube-move-x: 100dvw;
+            --cube-move-y: -200dvh;
+            --cube-move-rotation: 0.5, 1, 2;
         }
         header:has(#f2:checked) ~ main.container &
         {
-            /* rotate: x 90deg;  */
-            --cube-position: x 90deg;
+            rotate: x 90deg; 
+            --cube-move-x: -100dvw;
+            --cube-move-y: -180dvh;
+            --cube-move-rotation: 1, 1.2, 2.3;
         }
         header:has(#f3:checked) ~ main.container &
         {
-            /* rotate: y 90deg;  */
-            --cube-position: y 90deg;
+            rotate: y 90deg; 
+            --cube-move-x: -50dvw;
+            --cube-move-y: -140dvh;
+            --cube-move-rotation: 0.8, 0.8, 2;
         }
         header:has(#f4:checked) ~ main.container &
         {
-            /* rotate: y -90deg;  */
-            --cube-position: y -90deg;
+            rotate: y -90deg; 
+            --cube-move-x: 50dvw;
+            --cube-move-y: -160dvh;
+            --cube-move-rotation: 1, 0.8, 1.5;
         }
         header:has(#f5:checked) ~ main.container &
         {
-            /* rotate: y 180deg;  */
-            --cube-position: y 180deg;
+            rotate: y 180deg; 
+            --cube-move-x: 1px;
+            --cube-move-y: -170dvh;
+            --cube-move-rotation: 0.5, 0.5, 0.5;
         }
         header:has(#f6:checked) ~ main.container &
         {
-            /* rotate: x -90deg;  */
-            --cube-position: x -90deg;
+            rotate: x -90deg; 
+            --cube-move-x: -200dvw;
+            --cube-move-y: -100dvh;
+            --cube-move-rotation: 1.5, 1.5, 1.5;
         }
-    }
-}
-@container cube (width < 70vmin) {
-    .face
-    {
-        color: red;
     }
 }
 
@@ -165,47 +176,162 @@ main.container
 {
     0%
     {
-        rotate: inherit;
-    }
-    20%
-    {
-
-    }
-    40%
-    {
-        rotate: 0.5 1 2 360deg;
-        scale: 0.5 0.5 0.5;
-        translate: 0 0 calc(var(--cube-size) * 20 *-1);
-    }
-    60%
-    {
-        translate: 0 0 calc(var(--cube-size) * 20 *-1);
-        rotate: var(--cube-position);
-
-    }
-    80%
-    {
-
-    }
-    100%
-    {
-        rotate: var(--cube-position);
-        scale: 1;
+        transform: rotate3D(1, 1, 1, 0);
         translate: 0 0 0;
+        scale: 1;
     }
-}
-@keyframes take-dice 
-{ 
-    0%
+    25%
     {
-        transform: translate(0, 0);
+        transform: rotate3D(var(--cube-move-rotation), 360deg);
+        scale: 0.5 0.5 0.5;
+        translate: calc(var(--cube-move-x) / 2) calc(var(--cube-move-y) / 2) calc(var(--cube-size) * 40 *-1);
     }
     50%
     {
-        transform: translate(100dvw, 100dvh);
-    }   
+        translate: var(--cube-move-x) var(--cube-move-y) calc(var(--cube-size) * 40 *-1);
+        transform: rotate3D(1, 1, 1, 0);
+
+    }
+    75%
+    {
+        translate: var(--cube-move-x) var(--cube-move-y) calc(var(--cube-size) * 40 *-1);
+        transform: rotate3D(1, 1, 1, 0);
+    }
     100%
     {
-        transform: translate(0, 0);
+        scale: 1;
+        translate: 0 0 0;
+        transform: rotate3D(1, 1, 1, 0);
+    }
+}
+@media screen and (width < 500px) and (orientation: portrait)
+{
+    
+    main.container .cube-container
+    {
+        height: 80dvh;
+        /* rotate: x 750deg;
+        translate: 25% -40%; */
+        & .cube
+        {
+            & .face
+            {
+                translate: 50cqw 0 0;
+                transform-origin: right;
+                &.face-1
+                {
+                    translate: 0 0 calc(sqrt(3) / 2 * 100cqw);
+
+                }
+                &.face-2
+                {
+                    rotate: y 60deg;
+                    translate: 50cqw 0 0;
+                }
+                &.face-3
+                {
+                    rotate: y 120deg;
+                    translate: 0 0 calc(sqrt(3) / 2 * 100cqw * -1);
+                }
+                &.face-4
+                {
+                    rotate: y 180deg;
+                    translate: -100cqw 0 calc(sqrt(3) / 2 * 100cqw * -1);
+                }
+                &.face-5
+                {
+                    rotate: y 240deg;
+                    translate: -150cqw 0 0;
+                }
+                &.face-6
+                {
+                    rotate: y 300deg;
+                    translate: -100cqw 0 calc(sqrt(3) / 2 * 100cqw);
+                }
+            }
+            header:has(#f1:checked) ~ main.container &
+            {
+                rotate: x 0;
+                /* --cube-move-x: 100dvw;
+                --cube-move-y: -200dvh;
+                --cube-move-rotation: 0.5, 1, 2; */
+            }
+            header:has(#f2:checked) ~ main.container &
+            {
+                rotate: y -60deg; 
+                /* transform: rotate3D(0, 0, 1, 90deg); */
+                transform: rotateY(60deg) rotateZ(90deg);
+                /* --cube-move-x: -100dvw;
+                --cube-move-y: -180dvh;
+                --cube-move-rotation: 1, 1.2, 2.3; */
+            }
+            header:has(#f3:checked) ~ main.container &
+            {
+                rotate: y 120deg; 
+                /* --cube-move-x: -50dvw;
+                --cube-move-y: -140dvh;
+                --cube-move-rotation: 0.8, 0.8, 2; */
+            }
+            header:has(#f4:checked) ~ main.container &
+            {
+                rotate: y 180deg; 
+                /* --cube-move-x: 50dvw;
+                --cube-move-y: -160dvh;
+                --cube-move-rotation: 1, 0.8, 1.5; */
+            }
+            header:has(#f5:checked) ~ main.container &
+            {
+                rotate: y 240deg; 
+                /* --cube-move-x: 1px;
+                --cube-move-y: -170dvh;
+                --cube-move-rotation: 0.5, 0.5, 0.5; */
+            }
+            header:has(#f6:checked) ~ main.container &
+            {
+                rotate: y 300deg; 
+                /* --cube-move-x: -200dvw;
+                --cube-move-y: -100dvh;
+                --cube-move-rotation: 1.5, 1.5, 1.5; */
+            }
+
+        }
+    }
+    
+    @keyframes launch-dice
+    {
+        0%
+        {
+            transform: rotate3D(1, 1, 1, 0);
+            translate: 0 0 0;
+            scale: 1;
+        }
+        10%
+        {
+            transform: rotate3D(0, 0, 1, 360deg);
+        }
+        25%
+        {
+            /* transform: rotate3D(var(--cube-move-rotation), 360deg); */
+            transform: rotate3D(0, 0, 0.125, 360deg);
+            scale: 0.5 0.5 0.5;
+            translate: calc(var(--cube-move-x) / 2) calc(var(--cube-move-y) / 2) calc(var(--cube-size) * 40 *-1);
+        }
+        50%
+        {
+            translate: var(--cube-move-x) var(--cube-move-y) calc(var(--cube-size) * 40 *-1);
+            transform: rotate3D(0, 0, 0.125, 0);
+
+        }
+        75%
+        {
+            translate: var(--cube-move-x) var(--cube-move-y) calc(var(--cube-size) * 40 *-1);
+            transform: rotate3D(0, 0, 0.125, 0);
+        }
+        100%
+        {
+            scale: 1;
+            translate: 0 0 0;
+            transform: rotate3D(1, 1, 1, 0);
+        }
     }
 }
