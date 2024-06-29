@@ -7,10 +7,11 @@
 :root
 {
     --cube-size: 90cqmin;
-    --cube-rotation: .4s linear; 
-    --cube-start: x 0;
-    --cube-move-x: 0;
-    --cube-move-y: 0;
+    --cube-transition-rotation: .4s linear; 
+    --cube-rotation: 0deg;
+    --cube-angle: 0deg;
+    --cube-move-x: 0dvw;
+    --cube-move-y: 0dvh;
     --cube-move-rotation: 0.5, 1, 2;
 }
 body
@@ -58,7 +59,6 @@ main.container
         width: var(--cube-size);
         height: var(--cube-size);
         transform-style: preserve-3d;
-
     }
     & .cube
     {
@@ -66,7 +66,7 @@ main.container
         height: 100cqh;
         transform-style: preserve-3d;
         position: relative;
-        transition: rotate var(--cube-rotation);
+        transition: rotate var(--cube-transition-rotation);
         & .face
         {
             position: absolute;
@@ -109,6 +109,8 @@ main.container
                 transform-origin: top;
                 background-color: lightseagreen;
             }
+            &.face-7{display: none;}
+            &.face-8{display: none;}
             & .face-content
             {
                 width: 100%;
@@ -125,13 +127,14 @@ main.container
         }
         header#page-control:has(.input-link:checked) ~ main.container &
         {
-            /* animation: launch-dice 2s linear 1; */
+            animation: launch-dice 2s linear 1;
         }
         header:has(#f1:checked) ~ main.container &
         {
             rotate: x 0;
             --cube-move-x: 100dvw;
             --cube-move-y: -200dvh;
+            --cube-angle: 10deg;
             --cube-move-rotation: 0.5, 1, 2;
         }
         header:has(#f2:checked) ~ main.container &
@@ -139,6 +142,7 @@ main.container
             rotate: x 90deg; 
             --cube-move-x: -100dvw;
             --cube-move-y: -180dvh;
+            --cube-angle: -15deg;
             --cube-move-rotation: 1, 1.2, 2.3;
         }
         header:has(#f3:checked) ~ main.container &
@@ -146,6 +150,7 @@ main.container
             rotate: y 90deg; 
             --cube-move-x: -50dvw;
             --cube-move-y: -140dvh;
+            --cube-angle: -10deg;
             --cube-move-rotation: 0.8, 0.8, 2;
         }
         header:has(#f4:checked) ~ main.container &
@@ -153,6 +158,7 @@ main.container
             rotate: y -90deg; 
             --cube-move-x: 50dvw;
             --cube-move-y: -160dvh;
+            --cube-angle: 10deg;
             --cube-move-rotation: 1, 0.8, 1.5;
         }
         header:has(#f5:checked) ~ main.container &
@@ -160,6 +166,7 @@ main.container
             rotate: y 180deg; 
             --cube-move-x: 1px;
             --cube-move-y: -170dvh;
+            --cube-angle: 0deg;
             --cube-move-rotation: 0.5, 0.5, 0.5;
         }
         header:has(#f6:checked) ~ main.container &
@@ -167,6 +174,7 @@ main.container
             rotate: x -90deg; 
             --cube-move-x: -200dvw;
             --cube-move-y: -100dvh;
+            --cube-angle: -45deg;
             --cube-move-rotation: 1.5, 1.5, 1.5;
         }
     }
@@ -204,19 +212,60 @@ main.container
         transform: rotate3D(1, 1, 1, 0);
     }
 }
+@media screen and ((width < 500px) or (height < 500px)) 
+{
+    main.container .cube-container .cube .face
+    {
+        &.face-7, &.face-8
+        {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100cqw;
+            height: calc(sqrt(3) * 100cqw);
+            background-color: red;
+            rotate: x 90deg;
+            transform-origin: center;
+            &::before, &::after
+            {
+                content: "";
+                border: inherit;
+                border-left: none;
+                border-right: none;
+                background-color: red;
+                position: absolute;
+                rotate: z 60deg;
+                width: inherit;
+                height: inherit;
+            }
+            &::after
+            {
+                rotate: z -60deg;
+            }
+        }
+        &.face-7
+        {
+            translate: 0 -42cqh;
+        } 
+        &.face-8
+        {
+            rotate: x -90deg;
+            translate: 0 -27cqh;
+
+        }
+    }
+}
 @media screen and (width < 500px) and (orientation: portrait)
 {
     
     main.container .cube-container
     {
         height: 80dvh;
-        /* rotate: x 750deg;
-        translate: 25% -40%; */
         & .cube
         {
             & .face
             {
-                translate: 50cqw 0 0;
                 transform-origin: right;
                 &.face-1
                 {
@@ -251,47 +300,33 @@ main.container
             }
             header:has(#f1:checked) ~ main.container &
             {
-                rotate: x 0;
-                /* --cube-move-x: 100dvw;
-                --cube-move-y: -200dvh;
-                --cube-move-rotation: 0.5, 1, 2; */
+                --cube-rotation: 0deg;
+                rotate: y var(--cube-rotation);
             }
             header:has(#f2:checked) ~ main.container &
             {
-                rotate: y -60deg; 
-                /* transform: rotate3D(0, 0, 1, 90deg); */
-                transform: rotateY(60deg) rotateZ(90deg);
-                /* --cube-move-x: -100dvw;
-                --cube-move-y: -180dvh;
-                --cube-move-rotation: 1, 1.2, 2.3; */
+                --cube-rotation: 60deg;
+                rotate: y var(--cube-rotation);
             }
             header:has(#f3:checked) ~ main.container &
             {
-                rotate: y 120deg; 
-                /* --cube-move-x: -50dvw;
-                --cube-move-y: -140dvh;
-                --cube-move-rotation: 0.8, 0.8, 2; */
+                --cube-rotation: 120deg;
+                rotate: y var(--cube-rotation);
             }
             header:has(#f4:checked) ~ main.container &
             {
-                rotate: y 180deg; 
-                /* --cube-move-x: 50dvw;
-                --cube-move-y: -160dvh;
-                --cube-move-rotation: 1, 0.8, 1.5; */
+                --cube-rotation: 180deg;
+                rotate: y var(--cube-rotation);
             }
             header:has(#f5:checked) ~ main.container &
             {
-                rotate: y 240deg; 
-                /* --cube-move-x: 1px;
-                --cube-move-y: -170dvh;
-                --cube-move-rotation: 0.5, 0.5, 0.5; */
+                --cube-rotation: 240deg;
+                rotate: y var(--cube-rotation);
             }
             header:has(#f6:checked) ~ main.container &
             {
-                rotate: y 300deg; 
-                /* --cube-move-x: -200dvw;
-                --cube-move-y: -100dvh;
-                --cube-move-rotation: 1.5, 1.5, 1.5; */
+                --cube-rotation: 300deg;
+                rotate: y var(--cube-rotation);
             }
 
         }
@@ -301,37 +336,150 @@ main.container
     {
         0%
         {
-            transform: rotate3D(1, 1, 1, 0);
+            transform: rotateY(0) rotateZ(0deg) rotateY(0);
             translate: 0 0 0;
             scale: 1;
         }
         10%
         {
-            transform: rotate3D(0, 0, 1, 360deg);
+            transform: rotateY(calc(var(--cube-rotation) * -1)) rotateZ(90deg) rotateY(0);
         }
         25%
         {
-            /* transform: rotate3D(var(--cube-move-rotation), 360deg); */
-            transform: rotate3D(0, 0, 0.125, 360deg);
+            transform: rotateY(calc(var(--cube-rotation) * -1)) rotateZ(90deg) rotateZ(var(--cube-angle)) rotateY(360deg);
             scale: 0.5 0.5 0.5;
             translate: calc(var(--cube-move-x) / 2) calc(var(--cube-move-y) / 2) calc(var(--cube-size) * 40 *-1);
         }
         50%
         {
             translate: var(--cube-move-x) var(--cube-move-y) calc(var(--cube-size) * 40 *-1);
-            transform: rotate3D(0, 0, 0.125, 0);
+            transform: rotateY(calc(var(--cube-rotation) * -1)) rotateZ(90deg) rotateZ(var(--cube-angle)) rotateY(calc(720deg + var(--cube-rotation)));
 
         }
         75%
         {
             translate: var(--cube-move-x) var(--cube-move-y) calc(var(--cube-size) * 40 *-1);
-            transform: rotate3D(0, 0, 0.125, 0);
+            transform: rotateY(calc(var(--cube-rotation) * -1)) rotateZ(90deg) rotateZ(var(--cube-angle)) rotateY(calc(720deg + var(--cube-rotation)));
         }
         100%
         {
             scale: 1;
             translate: 0 0 0;
-            transform: rotate3D(1, 1, 1, 0);
+            transform: rotateY(calc(var(--cube-rotation) * -1)) rotateZ(0deg) rotateZ(0) rotateY(calc(720deg + var(--cube-rotation)));
+        }
+    }
+}
+
+@media screen and (height < 500px) and (orientation: landscape)
+{
+    main.container .cube-container
+    {
+        width: 80dvw;
+        & .cube
+        {
+            & .face
+            {
+                transform-origin: top;
+
+                &.face-1
+                {
+                    translate: 0 0 calc(sqrt(3) / 2 * 100cqh);
+
+                }
+                &.face-2
+                {
+                    rotate: x 60deg;
+                    translate: 0 -50cqh 0;
+                }
+                &.face-3
+                {
+                    rotate: x 120deg;
+                    translate: 0 0 calc(sqrt(3) / 2 * 100cqh * -1);
+                }
+                &.face-4
+                {
+                    rotate: x 180deg;
+                    translate: 0 100cqh calc(sqrt(3) / 2 * 100cqh * -1);
+                }
+                &.face-5
+                {
+                    rotate: x 240deg;
+                    translate: 0 150cqh 0;
+                }
+                &.face-6
+                {
+                    rotate: x 300deg;
+                    translate:  0 100cqh calc(sqrt(3) / 2 * 100cqh);
+                }
+            }
+            header:has(#f1:checked) ~ main.container &
+            {
+                --cube-rotation: 0deg;
+                rotate: x var(--cube-rotation);
+            }
+            header:has(#f2:checked) ~ main.container &
+            {
+                --cube-rotation: 60deg;
+                rotate: x var(--cube-rotation);
+            }
+            header:has(#f3:checked) ~ main.container &
+            {
+                --cube-rotation: 120deg;
+                rotate: x var(--cube-rotation);
+            }
+            header:has(#f4:checked) ~ main.container &
+            {
+                --cube-rotation: 180deg;
+                rotate: x var(--cube-rotation);
+            }
+            header:has(#f5:checked) ~ main.container &
+            {
+                --cube-rotation: 240deg;
+                rotate: x var(--cube-rotation);
+            }
+            header:has(#f6:checked) ~ main.container &
+            {
+                --cube-rotation: 300deg;
+                rotate: x var(--cube-rotation);
+            }
+
+        }
+    }
+    
+    @keyframes launch-dice
+    {
+        0%
+        {
+            transform: rotateX(0) rotateZ(0) rotateX(0);
+            translate: 0 0 0;
+            scale: 1;
+        }
+        10%
+        {
+            transform: rotateX(calc(var(--cube-rotation) * -1)) rotateZ(0) rotateX(0);
+        }
+        25%
+        {
+            scale: 0.5 0.5 0.5;
+            translate: calc(var(--cube-move-x) / 2) calc(var(--cube-move-y) / 2) calc(var(--cube-size) * 40 *-1);
+            transform: rotateX(calc(var(--cube-rotation) * -1)) rotateZ(var(--cube-angle)) rotateX(calc(360deg + var(--cube-rotation)));
+        }
+        50%
+        {
+            translate: var(--cube-move-x) var(--cube-move-y) calc(var(--cube-size) * 40 *-1);
+            transform: rotateX(calc(var(--cube-rotation) * -1)) rotateZ(var(--cube-angle)) rotateX(calc(720deg + var(--cube-rotation)));
+
+        }
+        75%
+        {
+            translate: var(--cube-move-x) var(--cube-move-y) calc(var(--cube-size) * 40 *-1);
+            transform: rotateX(calc(var(--cube-rotation) * -1)) rotateZ(var(--cube-angle)) rotateX(calc(720deg + var(--cube-rotation)));
+        }
+        100%
+        {
+            scale: 1;
+            translate: 0 0 0;
+            transform: rotateX(calc(var(--cube-rotation) * -1)) rotateZ(0) rotateX(calc(720deg + var(--cube-rotation)));
         }
     }
 }
