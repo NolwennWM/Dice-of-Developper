@@ -1,0 +1,92 @@
+main.container .cube-container
+{
+    width: 90cqw;
+    & .cube
+    {
+        --cube-rotation-axe: x;
+        & .face
+        {
+            transform-origin: top;
+            &.face-1
+            {
+                translate: 0 0 calc(sqrt(3) / 2 * 100cqh);
+            }
+            &.face-2
+            {
+                translate: 0 -50cqh 0;
+            }
+            &.face-3
+            {
+                translate: 0 0 calc(sqrt(3) / 2 * 100cqh * -1);
+            }
+            &.face-4
+            {
+                translate: 0 100cqh calc(sqrt(3) / 2 * 100cqh * -1);
+            }
+            &.face-5
+            {
+                translate: 0 150cqh 0;
+            }
+            &.face-6
+            {
+                translate:  0 100cqh calc(sqrt(3) / 2 * 100cqh);
+            }
+            &.face-7, &.face-8
+            {
+                width: 100cqh;
+                height: calc(sqrt(3) * 100cqh);
+            }
+            &.face-7
+            {
+                right: 0;
+                transform-origin: center;
+                transform: rotateY(-90deg) rotateZ(30deg);
+                translate: 50cqh -37cqh 0px;   
+            }
+            &.face-8
+            {
+                left: 0;
+                transform-origin: center;
+                transform: rotateY(-90deg) rotateZ(30deg);
+                translate: -50cqh -37cqh 0px;      
+            }
+        }
+    }
+}
+
+@keyframes launch-dice
+{
+    0%
+    {
+        transform: rotateX(0) rotateZ(0) rotateX(0);
+        translate: 0 0 0;
+        scale: 1;
+    }
+    10%
+    {
+        transform: rotateX(calc(var(--cube-rotation) * -1)) rotateZ(0) rotateX(0);
+    }
+    25%
+    {
+        scale: 0.5 0.5 0.5;
+        translate: calc(var(--cube-move-x) / 2) calc(var(--cube-move-y) / 2) calc(var(--cube-size) * 40 *-1);
+        transform: rotateX(calc(var(--cube-rotation) * -1)) rotateZ(var(--cube-angle)) rotateX(calc(360deg + var(--cube-rotation)));
+    }
+    50%
+    {
+        translate: var(--cube-move-x) var(--cube-move-y) calc(var(--cube-size) * 40 *-1);
+        transform: rotateX(calc(var(--cube-rotation) * -1)) rotateZ(var(--cube-angle)) rotateX(calc(720deg + var(--cube-rotation)));
+
+    }
+    75%
+    {
+        translate: var(--cube-move-x) var(--cube-move-y) calc(var(--cube-size) * 40 *-1);
+        transform: rotateX(calc(var(--cube-rotation) * -1)) rotateZ(var(--cube-angle)) rotateX(calc(720deg + var(--cube-rotation)));
+    }
+    100%
+    {
+        scale: 1;
+        translate: 0 0 0;
+        transform: rotateX(calc(var(--cube-rotation) * -1)) rotateZ(0) rotateX(calc(720deg + var(--cube-rotation)));
+    }
+}

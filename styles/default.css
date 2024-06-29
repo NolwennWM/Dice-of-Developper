@@ -1,0 +1,230 @@
+body
+{
+    height: 100dvh;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    background-color: var(--bg-color);
+    color: var(--text-nav-color);
+}
+header.portfolio-header
+{
+    position: relative;
+    z-index: 10;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+
+    & label.btn-toggle
+    {
+        display: flex;
+        align-items: center;
+        width: 100px;
+        height: 50px;
+        background-color: gainsboro;
+        border-radius: 25px;
+        position: relative;
+        
+        & input.check-toggle
+        {
+            display: none;
+        }
+        &::before
+        {
+            content: "";
+            display: block;
+            width: 40%;
+            aspect-ratio: 1/1;
+            background-color: green;
+            position: absolute;
+            border-radius: 50%;
+            left: 5%;
+            transition: left .2s linear;
+        }
+        &:has(input.check-toggle:checked)::before
+        {
+            left: 55%;
+            background-color: red;
+        }
+    }
+    & nav.cube-navigation
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        & .label-link
+        {
+            cursor: pointer;
+            & .input-link
+            {
+                display: none;
+                .label-link:has(&:checked)
+                {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+main.container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: calc(var(--cube-size) * 10);
+    container: container / size;
+    & .cube-container
+    {
+        container: cube / size;
+        width: var(--cube-size);
+        height: var(--cube-size);
+        transform-style: preserve-3d;
+    }
+    & .cube
+    {
+        width: 100cqw;
+        height: 100cqh;
+        transform-style: preserve-3d;
+        position: relative;
+        transition: rotate var(--cube-transition-rotation);
+        & .face
+        {
+            position: absolute;
+            width: inherit;
+            height: inherit;
+            /* backface-visibility: hidden; */
+            translate: 0 0 calc(100cqw / 2 * -1);
+            border: 2cqw solid var(--border-color);
+            background-color: var(--bg-dice-color);
+            &.face-1
+            {
+                translate: 0 0 calc(100cqw / 2);
+            }
+            &.face-2
+            {
+                rotate: x -90deg;
+                transform-origin: bottom;
+            }
+            &.face-3
+            {
+                rotate: y -90deg;
+                transform-origin: left;
+            }
+            &.face-4
+            {
+                rotate: y 90deg;
+                transform-origin: right;
+            }
+            &.face-5
+            {
+                rotate: y 180deg;
+            }
+            &.face-6
+            {
+                rotate: x 90deg;
+                transform-origin: top;
+            }
+            &.face-7{display: none;}
+            &.face-8{display: none;}
+            & .face-content
+            {
+                width: 100%;
+                height: 100%;
+                overflow-x: hidden;
+                overflow-y: auto;
+                scrollbar-width: thin;
+                padding: 1vmin;
+            }
+        }
+        header#page-control:has(.input-link:active) ~ main.container &, header#page-control:has(.animation-toggle #check-animation:checked) ~ main.container &
+        {
+            animation: none !important;
+        }
+        header#page-control:has(.input-link:checked) ~ main.container &
+        {
+            animation: launch-dice 2s linear 1;
+        }
+        header:has(#f1:checked) ~ main.container &
+        {
+            rotate: x 0;
+            --cube-move-x: 100dvw;
+            --cube-move-y: -200dvh;
+            --cube-angle: 10deg;
+            --cube-move-rotation: 0.5, 1, 2;
+        }
+        header:has(#f2:checked) ~ main.container &
+        {
+            rotate: x 90deg; 
+            --cube-move-x: -100dvw;
+            --cube-move-y: -180dvh;
+            --cube-angle: -15deg;
+            --cube-move-rotation: 1, 1.2, 2.3;
+        }
+        header:has(#f3:checked) ~ main.container &
+        {
+            rotate: y 90deg; 
+            --cube-move-x: -50dvw;
+            --cube-move-y: -140dvh;
+            --cube-angle: -10deg;
+            --cube-move-rotation: 0.8, 0.8, 2;
+        }
+        header:has(#f4:checked) ~ main.container &
+        {
+            rotate: y -90deg; 
+            --cube-move-x: 50dvw;
+            --cube-move-y: -160dvh;
+            --cube-angle: 10deg;
+            --cube-move-rotation: 1, 0.8, 1.5;
+        }
+        header:has(#f5:checked) ~ main.container &
+        {
+            rotate: y 180deg; 
+            --cube-move-x: 1px;
+            --cube-move-y: -170dvh;
+            --cube-angle: 0deg;
+            --cube-move-rotation: 0.5, 0.5, 0.5;
+        }
+        header:has(#f6:checked) ~ main.container &
+        {
+            rotate: x -90deg; 
+            --cube-move-x: -200dvw;
+            --cube-move-y: -100dvh;
+            --cube-angle: -45deg;
+            --cube-move-rotation: 1.5, 1.5, 1.5;
+        }
+    }
+}
+
+@keyframes launch-dice
+{
+    0%
+    {
+        transform: rotate3D(1, 1, 1, 0);
+        translate: 0 0 0;
+        scale: 1;
+    }
+    25%
+    {
+        transform: rotate3D(var(--cube-move-rotation), 360deg);
+        scale: 0.5 0.5 0.5;
+        translate: calc(var(--cube-move-x) / 2) calc(var(--cube-move-y) / 2) calc(var(--cube-size) * 40 *-1);
+    }
+    50%
+    {
+        translate: var(--cube-move-x) var(--cube-move-y) calc(var(--cube-size) * 40 *-1);
+        transform: rotate3D(1, 1, 1, 0);
+
+    }
+    75%
+    {
+        translate: var(--cube-move-x) var(--cube-move-y) calc(var(--cube-size) * 40 *-1);
+        transform: rotate3D(1, 1, 1, 0);
+    }
+    100%
+    {
+        scale: 1;
+        translate: 0 0 0;
+        transform: rotate3D(1, 1, 1, 0);
+    }
+}

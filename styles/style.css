@@ -1,0 +1,5 @@
+@import url("./settings.css");
+@import url("./default.css");
+@import url("./mobile.css") screen and ((width < 500px) or (height < 500px));
+@import url("./mobile-portrait.css") screen and (width < 500px) and (orientation: portrait);
+@import url("./mobile-landscape.css") screen and (height < 500px) and (orientation: landscape);

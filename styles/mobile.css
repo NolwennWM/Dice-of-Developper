@@ -1,0 +1,76 @@
+main.container .cube-container .cube 
+{
+    & .face
+    {
+        &.face-2
+        {
+            rotate: var(--cube-rotation-axe) 60deg;
+        }
+        &.face-3
+        {
+            rotate: var(--cube-rotation-axe) 120deg;
+        }
+        &.face-4
+        {
+            rotate: var(--cube-rotation-axe) 180deg;
+        }
+        &.face-5
+        {
+            rotate: var(--cube-rotation-axe) 240deg;
+        }
+        &.face-6
+        {
+            rotate: var(--cube-rotation-axe) 300deg;
+        }
+        &.face-7, &.face-8
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &::before, &::after
+            {
+                content: "";
+                border: inherit;
+                border-left: none;
+                border-right: none;
+                background-color: var(--bg-dice-color);
+                position: absolute;
+                rotate: z 60deg;
+                width: inherit;
+                height: inherit;
+            }
+            &::after
+            {
+                rotate: z -60deg;
+            }
+        }
+    }
+    header#page-control:has(.input-link:checked) ~ main.container &
+    {
+        rotate: var(--cube-rotation-axe) var(--cube-rotation);
+    }
+    header:has(#f1:checked) ~ main.container &
+    {
+        --cube-rotation: 0deg;
+    }
+    header:has(#f2:checked) ~ main.container &
+    {
+        --cube-rotation: 60deg;
+    }
+    header:has(#f3:checked) ~ main.container &
+    {
+        --cube-rotation: 120deg;
+    }
+    header:has(#f4:checked) ~ main.container &
+    {
+        --cube-rotation: 180deg;
+    }
+    header:has(#f5:checked) ~ main.container &
+    {
+        --cube-rotation: 240deg;
+    }
+    header:has(#f6:checked) ~ main.container &
+    {
+        --cube-rotation: 300deg;
+    } 
+}

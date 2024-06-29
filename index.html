@@ -4,24 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./styles/style.css">
 </head>
-<body>
+<body class="">
     <header class="portfolio-header" id="page-control">
+        <label class="btn-toggle animation-toggle" for="check-animation">
+            <input type="checkbox" class="check-toggle" id="check-animation">
+        </label>
         <nav class="cube-navigation">
-            <input type="radio" name="faces" id="f1" class="input-link" checked>
-            <label for="f1" class="label-link">Accueil</label>
-            <input type="radio" name="faces" id="f2" class="input-link">
-            <label for="f2" class="label-link">Projets</label>
-            <input type="radio" name="faces" id="f3" class="input-link">
-            <label for="f3" class="label-link">À propos</label>
-            <input type="radio" name="faces" id="f4" class="input-link">
-            <label for="f4" class="label-link">Compétences</label>
-            <input type="radio" name="faces" id="f5" class="input-link">
-            <label for="f5" class="label-link">Contact</label>
-            <input type="radio" name="faces" id="f6" class="input-link">
-            <label for="f6" class="label-link">Page 6</label>
+            <label for="f1" class="label-link">
+                <input type="radio" name="faces" id="f1" class="input-link" checked>
+                <span>Accueil</span>
+            </label>
+            <label for="f2" class="label-link">
+                <input type="radio" name="faces" id="f2" class="input-link">
+                <span>Projets</span>
+            </label>
+            <label for="f3" class="label-link">
+                <input type="radio" name="faces" id="f3" class="input-link">
+                <span>À propos</span>
+            </label>
+            <label for="f4" class="label-link">
+                <input type="radio" name="faces" id="f4" class="input-link">
+                <span>Compétences</span>
+            </label>
+            <label for="f5" class="label-link">
+                <input type="radio" name="faces" id="f5" class="input-link">
+                <span>Contact</span>
+            </label>
+            <label for="f6" class="label-link">
+                <input type="radio" name="faces" id="f6" class="input-link">
+                <span>Page 6</span>
+            </label>
         </nav>
+        <label class="btn-toggle theme-toggle" for="check-theme">
+            <input type="checkbox" class="check-toggle" id="check-theme">
+        </label>
     </header>
     <main class="container">
         <div class="cube-container">

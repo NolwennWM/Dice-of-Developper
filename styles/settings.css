@@ -1,0 +1,28 @@
+*[class], ::before, ::after
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root
+{
+    --bg-color: antiquewhite;
+    --bg-dice-color: #f5f8fc;
+    --text-nav-color: black;
+    --border-color: #b4b8c0;
+    --cube-size: 90cqmin;
+    --cube-transition-rotation: .4s linear; 
+    --cube-rotation-axe: x;
+    --cube-rotation: 0deg;
+    --cube-angle: 0deg;
+    --cube-move-x: 0dvw;
+    --cube-move-y: 0dvh;
+    --cube-move-rotation: 0.5, 1, 2;
+}
+:root:has(input#check-theme:checked)
+{
+    --bg-color: #0e1217;
+    --bg-dice-color: #1c1f26;
+    --text-nav-color: #cccccc;
+    --border-color: #545b6a;
+}

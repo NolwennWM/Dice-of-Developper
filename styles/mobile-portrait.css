@@ -1,0 +1,107 @@
+header.portfolio-header
+{
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    & nav.cube-navigation
+    {
+        grid-row: 2/3;
+        grid-column: 1/-1;
+    }
+    & .btn-toggle.theme-toggle
+    {
+        justify-self: end;
+    }
+}
+main.container .cube-container
+{
+    height: 90cqh;
+    & .cube
+    {
+        --cube-rotation-axe: y;
+        & .face
+        {
+            transform-origin: right;
+            &.face-1
+            {
+                translate: 0 0 calc(sqrt(3) / 2 * 100cqw);
+
+            }
+            &.face-2
+            {
+                translate: 50cqw 0 0;
+            }
+            &.face-3
+            {
+                translate: 0 0 calc(sqrt(3) / 2 * 100cqw * -1);
+            }
+            &.face-4
+            {
+                translate: -100cqw 0 calc(sqrt(3) / 2 * 100cqw * -1);
+            }
+            &.face-5
+            {
+                translate: -150cqw 0 0;
+            }
+            &.face-6
+            {
+                translate: -100cqw 0 calc(sqrt(3) / 2 * 100cqw);
+            }
+            &.face-7, &.face-8
+            {
+                width: 100cqw;
+                height: calc(sqrt(3) * 100cqw);
+            }
+            &.face-7
+            {
+                top: 0;
+                transform-origin: top;        
+                rotate: x 90deg;
+                translate: 0px 0px calc(sqrt(3) / 2 * 100cqw * -1);
+            }
+            &.face-8
+            {
+                bottom: 0;
+                transform-origin: bottom;  
+                rotate: x -90deg;
+                translate: 0px 0px calc(sqrt(3) / 2 * 100cqw * -1);      
+            }
+        }
+    }
+}
+
+@keyframes launch-dice
+{
+    0%
+    {
+        transform: rotateY(0) rotateZ(0deg) rotateY(0);
+        translate: 0 0 0;
+        scale: 1;
+    }
+    10%
+    {
+        transform: rotateY(calc(var(--cube-rotation) * -1)) rotateZ(90deg) rotateY(0);
+    }
+    25%
+    {
+        transform: rotateY(calc(var(--cube-rotation) * -1)) rotateZ(90deg) rotateZ(var(--cube-angle)) rotateY(360deg);
+        scale: 0.5 0.5 0.5;
+        translate: calc(var(--cube-move-x) / 2) calc(var(--cube-move-y) / 2) calc(var(--cube-size) * 40 *-1);
+    }
+    50%
+    {
+        translate: var(--cube-move-x) var(--cube-move-y) calc(var(--cube-size) * 40 *-1);
+        transform: rotateY(calc(var(--cube-rotation) * -1)) rotateZ(90deg) rotateZ(var(--cube-angle)) rotateY(calc(720deg + var(--cube-rotation)));
+
+    }
+    75%
+    {
+        translate: var(--cube-move-x) var(--cube-move-y) calc(var(--cube-size) * 40 *-1);
+        transform: rotateY(calc(var(--cube-rotation) * -1)) rotateZ(90deg) rotateZ(var(--cube-angle)) rotateY(calc(720deg + var(--cube-rotation)));
+    }
+    100%
+    {
+        scale: 1;
+        translate: 0 0 0;
+        transform: rotateY(calc(var(--cube-rotation) * -1)) rotateZ(0deg) rotateZ(0) rotateY(calc(720deg + var(--cube-rotation)));
+    }
+}
