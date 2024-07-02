@@ -9,7 +9,16 @@
 <body class="">
     <header class="portfolio-header" id="page-control">
         <label class="btn-toggle animation-toggle" for="check-animation">
-            <input type="checkbox" class="check-toggle" id="check-animation">
+            <span class="slider">
+                <svg viewBox="0 0 400 400" width="200" height="200" stroke-width="10" fill="none" stroke="black"  xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" id="anime-level-icon">
+                    <path d="M 200 25 L 365 100 L 200 175 L 35 100 Z M 25 115 L 190 190 V 375 L 25 300 Z M 375 115 L 210 190 V 375 L 375 300 Z" stroke-dasharray="735"/>
+                    <rect x="50" y="50" width="300" height="300" rx="15" ry="15" stroke-dasharray="1400"/>
+                    <circle cx="200" cy="200" r="25"/>
+                    <circle cx="100" cy="100" r="25"/>
+                    <circle cx="300" cy="300" r="25"/>
+                </svg>
+            </span>
+            <input type="checkbox" class="check-toggle" id="check-animation" checked>
         </label>
         <nav class="cube-navigation">
             <label for="f1" class="label-link">
@@ -39,6 +48,12 @@
         </nav>
         <label class="btn-toggle theme-toggle" for="check-theme">
             <input type="checkbox" class="check-toggle" id="check-theme">
+            <span class="slider">
+                <svg viewBox="0 0 400 400" width="200" height="200" stroke-width="10" fill="none" stroke="black"  xmlns="http://www.w3.org/2000/svg" stroke-linecap="square" id="dark-theme-icon">
+                    <path d="M 200 25 A 100, 100, 0, 1, 1, 200, 375 A 10, 20, 0, 0, 0, 200, 25 Z" stroke-dasharray="975"/>
+                    <circle cx="200" cy="200" r="175" stroke-dasharray="1090"/>
+                </svg>
+            </span>
         </label>
     </header>
     <main class="container">
@@ -57,7 +72,8 @@
                     </section>
                 </div>
                 <div class="face face-2">
-                    <section class="face-content"></section>                    
+                    <section class="face-content">
+                    </section>                    
                 </div>
                 <div class="face face-3">
                     <section class="face-content"></section>

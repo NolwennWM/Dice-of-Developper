@@ -7,66 +7,6 @@ body
     background-color: var(--bg-color);
     color: var(--text-nav-color);
 }
-header.portfolio-header
-{
-    position: relative;
-    z-index: 10;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-
-    & label.btn-toggle
-    {
-        display: flex;
-        align-items: center;
-        width: 100px;
-        height: 50px;
-        background-color: gainsboro;
-        border-radius: 25px;
-        position: relative;
-        
-        & input.check-toggle
-        {
-            display: none;
-        }
-        &::before
-        {
-            content: "";
-            display: block;
-            width: 40%;
-            aspect-ratio: 1/1;
-            background-color: green;
-            position: absolute;
-            border-radius: 50%;
-            left: 5%;
-            transition: left .2s linear;
-        }
-        &:has(input.check-toggle:checked)::before
-        {
-            left: 55%;
-            background-color: red;
-        }
-    }
-    & nav.cube-navigation
-    {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 20px;
-        & .label-link
-        {
-            cursor: pointer;
-            & .input-link
-            {
-                display: none;
-                .label-link:has(&:checked)
-                {
-                    text-decoration: underline;
-                }
-            }
-        }
-    }
-}
 main.container
 {
     display: flex;

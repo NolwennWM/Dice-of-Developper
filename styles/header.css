@@ -1,0 +1,156 @@
+
+header.portfolio-header
+{
+    position: relative;
+    z-index: 10;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+
+    & label.btn-toggle
+    {
+        display: flex;
+        align-items: center;
+        width: 100px;
+        height: 50px;
+        background-color: gainsboro;
+        border-radius: 25px;
+        position: relative;
+        
+        & input.check-toggle
+        {
+            display: none;
+        }
+        & .slider
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40%;
+            aspect-ratio: 1/1;
+            background-color: green;
+            position: absolute;
+            border-radius: 50%;
+            left: 5%;
+            transition: left .2s linear, background-color .5s linear;
+            .theme-toggle &
+            {
+                background-color: skyblue;
+                & svg#dark-theme-icon
+                {
+                    width: 80%;
+                    height: 80%;
+                    & path
+                    {
+                        transition: fill .5s linear, stroke-dashoffset .5s linear;
+                        fill: transparent;
+                        stroke-dashoffset: 975;
+                    }
+                    & circle
+                    {
+                        transition: fill .5s .5s linear, stroke-dashoffset .5s .5s linear;
+                        fill: yellow;
+                        stroke-dashoffset: 0;
+                    }
+                }
+            }
+            .animation-toggle &
+            {
+                /* background-color: skyblue; */
+                & svg#anime-level-icon
+                {
+                    width: 80%;
+                    height: 80%;
+                    & path
+                    {
+                        transition: fill .5s .5s linear, stroke-dashoffset .5s .5s linear;
+                        fill: grey;
+                        stroke-dashoffset: 0;
+                    }
+                    & rect
+                    {
+                        transition: fill .5s linear, stroke-dashoffset .5s linear;
+                        fill: transparent;
+                        stroke-dashoffset: 1400;
+                    }
+                    & circle
+                    {
+                        transition: fill .5s linear, stroke .5s linear;
+                        fill: transparent;
+                        stroke: transparent;
+                    }
+                }
+            }
+        }
+        &:has(input.check-toggle:checked) .slider
+        {
+            left: 55%;
+            background-color: red;
+            .theme-toggle &
+            {
+                background-color: #131862;
+                & svg#dark-theme-icon
+                {
+                    & path
+                    {
+                        transition: fill .5s .5s linear, stroke-dashoffset .5s .5s linear;
+                        fill: lightsteelblue;
+                        stroke-dashoffset: 0;
+                    }
+                    & circle
+                    {
+                        transition: fill .5s linear, stroke-dashoffset .5s linear;
+                        fill: transparent;
+                        stroke-dashoffset: 1090;
+                    }
+                }
+            }
+            .animation-toggle &
+            {
+                /* background-color: skyblue; */
+                & svg#anime-level-icon
+                {
+                    width: 80%;
+                    height: 80%;
+                    & path
+                    {
+                        transition: fill .5s linear, stroke-dashoffset .5s linear;
+                        fill: transparent;
+                        stroke-dashoffset: 735;
+                    }
+                    & rect
+                    {
+                        transition: fill .5s .5s linear, stroke-dashoffset .5s .5s linear;
+                        fill: #183153;
+                        stroke-dashoffset: 0;
+                    }
+                    & circle
+                    {
+                        transition: fill .5s .5s linear, stroke .5s .5s linear;
+                        stroke: whitesmoke;
+                        fill: whitesmoke;
+                    }
+                }
+            }
+        }
+    }
+    & nav.cube-navigation
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        & .label-link
+        {
+            cursor: pointer;
+            & .input-link
+            {
+                display: none;
+                .label-link:has(&:checked)
+                {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
