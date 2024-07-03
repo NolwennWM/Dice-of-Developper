@@ -6,12 +6,24 @@
 }
 :root
 {
+    /* Colors Settings */
     --bg-color: antiquewhite;
     --bg-dice-color: #f5f8fc;
     --text-nav-color: black;
     --border-color: #b4b8c0;
+    --border-color-translucent: #b4b8c080;
+    /* Navbar Settings */
+    --item-menu-width: 90px;
+    --item-menu-spacing: 20px;
+    --indicator-size: 70px;
+    --toggle-width: 100px;
+    --toggle-height: 50px;
+    /* Cube Settings */
     --cube-size: 90cqmin;
-    --cube-transition-rotation: .4s linear; 
+    --cube-duration-rotation: .4s;
+    --cube-duration-launch: 2s;
+    --cube-animation-launch: var(--cube-duration-launch) linear 1;
+    --cube-transition-rotation: var(--cube-duration-rotation) linear; 
     --cube-rotation-axe: x;
     --cube-rotation: 0deg;
     --cube-angle: 0deg;

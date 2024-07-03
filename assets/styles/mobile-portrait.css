@@ -1,17 +1,3 @@
-header.portfolio-header
-{
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
-    & nav.cube-navigation
-    {
-        grid-row: 2/3;
-        grid-column: 1/-1;
-    }
-    & .btn-toggle.theme-toggle
-    {
-        justify-self: end;
-    }
-}
 main.container .cube-container
 {
     height: 90cqh;
@@ -32,6 +18,8 @@ main.container .cube-container
             }
             &.face-3
             {
+                /* translate: -150cqw 0 0; */
+
                 translate: 0 0 calc(sqrt(3) / 2 * 100cqw * -1);
             }
             &.face-4
@@ -41,6 +29,7 @@ main.container .cube-container
             &.face-5
             {
                 translate: -150cqw 0 0;
+                /* translate: 0 0 calc(sqrt(3) / 2 * 100cqw * -1); */
             }
             &.face-6
             {

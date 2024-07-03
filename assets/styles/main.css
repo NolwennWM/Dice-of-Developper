@@ -75,15 +75,31 @@ main.container
                 overflow-y: auto;
                 scrollbar-width: thin;
                 padding: 1vmin;
+                opacity: 0;
+                transition: opacity 0.4s var(--cube-duration-launch) linear;
+            }
+            & img.icon-section
+            {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                translate: -50% -50%;
+                width: 50cqmin;
+                height: 50cqmin;
+                transition: opacity 0.4s var(--cube-duration-launch) linear;
             }
         }
         header#page-control:has(.input-link:active) ~ main.container &, header#page-control:has(.animation-toggle #check-animation:checked) ~ main.container &
         {
             animation: none !important;
+            & .face img.icon-section, & .face section.face-content
+            {
+                transition-delay: var(--cube-duration-rotation);
+            }
         }
         header#page-control:has(.input-link:checked) ~ main.container &
         {
-            animation: launch-dice 2s linear 1;
+            animation: launch-dice var(--cube-animation-launch);
         }
         header:has(#f1:checked) ~ main.container &
         {
@@ -92,6 +108,17 @@ main.container
             --cube-move-y: -200dvh;
             --cube-angle: 10deg;
             --cube-move-rotation: 0.5, 1, 2;
+            & .face-1 
+            {
+                & img.icon-section
+                {
+                    opacity: 0;
+                }
+                & section.face-content
+                {
+                    opacity: 1;
+                }
+            }
         }
         header:has(#f2:checked) ~ main.container &
         {
@@ -100,6 +127,17 @@ main.container
             --cube-move-y: -180dvh;
             --cube-angle: -15deg;
             --cube-move-rotation: 1, 1.2, 2.3;
+            & .face-2 
+            {
+                & img.icon-section
+                {
+                    opacity: 0;
+                }
+                & section.face-content
+                {
+                    opacity: 1;
+                }
+            }
         }
         header:has(#f3:checked) ~ main.container &
         {
@@ -108,6 +146,17 @@ main.container
             --cube-move-y: -140dvh;
             --cube-angle: -10deg;
             --cube-move-rotation: 0.8, 0.8, 2;
+            & .face-3 
+            {
+                & img.icon-section
+                {
+                    opacity: 0;
+                }
+                & section.face-content
+                {
+                    opacity: 1;
+                }
+            }
         }
         header:has(#f4:checked) ~ main.container &
         {
@@ -116,6 +165,17 @@ main.container
             --cube-move-y: -160dvh;
             --cube-angle: 10deg;
             --cube-move-rotation: 1, 0.8, 1.5;
+            & .face-4 
+            {
+                & img.icon-section
+                {
+                    opacity: 0;
+                }
+                & section.face-content
+                {
+                    opacity: 1;
+                }
+            }
         }
         header:has(#f5:checked) ~ main.container &
         {
@@ -124,6 +184,17 @@ main.container
             --cube-move-y: -170dvh;
             --cube-angle: 0deg;
             --cube-move-rotation: 0.5, 0.5, 0.5;
+            & .face-5 
+            {
+                & img.icon-section
+                {
+                    opacity: 0;
+                }
+                & section.face-content
+                {
+                    opacity: 1;
+                }
+            }
         }
         header:has(#f6:checked) ~ main.container &
         {
@@ -132,6 +203,17 @@ main.container
             --cube-move-y: -100dvh;
             --cube-angle: -45deg;
             --cube-move-rotation: 1.5, 1.5, 1.5;
+            & .face-6 
+            {
+                & img.icon-section
+                {
+                    opacity: 0;
+                }
+                & section.face-content
+                {
+                    opacity: 1;
+                }
+            }
         }
     }
 }

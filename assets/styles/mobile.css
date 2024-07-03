@@ -55,11 +55,11 @@ main.container .cube-container .cube
     }
     header:has(#f2:checked) ~ main.container &
     {
-        --cube-rotation: 60deg;
+        --cube-rotation: 300deg;
     }
     header:has(#f3:checked) ~ main.container &
     {
-        --cube-rotation: 120deg;
+        --cube-rotation: 240deg;
     }
     header:has(#f4:checked) ~ main.container &
     {
@@ -67,10 +67,10 @@ main.container .cube-container .cube
     }
     header:has(#f5:checked) ~ main.container &
     {
-        --cube-rotation: 240deg;
+        --cube-rotation: 120deg;
     }
     header:has(#f6:checked) ~ main.container &
     {
-        --cube-rotation: 300deg;
+        --cube-rotation: 60deg;
     } 
 }

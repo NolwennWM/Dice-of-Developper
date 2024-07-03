@@ -1,21 +1,28 @@
-
 header.portfolio-header
 {
     position: relative;
     z-index: 10;
     display: grid;
     grid-template-columns: auto 1fr auto;
+    height: 70px;
+    font-family: monospace, 'Courier New', Courier;
+    padding-bottom: 5px;
 
     & label.btn-toggle
     {
         display: flex;
         align-items: center;
-        width: 100px;
-        height: 50px;
+        width: var(--toggle-width);
+        height: var(--toggle-height);
         background-color: gainsboro;
         border-radius: 25px;
         position: relative;
-        
+        cursor: pointer;
+        z-index: 10;
+        &.theme-toggle
+        {
+            grid-column: 3/4;
+        }
         & input.check-toggle
         {
             display: none;
@@ -55,7 +62,6 @@ header.portfolio-header
             }
             .animation-toggle &
             {
-                /* background-color: skyblue; */
                 & svg#anime-level-icon
                 {
                     width: 80%;
@@ -135,22 +141,109 @@ header.portfolio-header
     }
     & nav.cube-navigation
     {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 20px;
-        & .label-link
+        position: relative;
+        padding: 10px var(--item-menu-spacing);
+        width: fit-content;
+        justify-self: center;
+        border-radius: 0 0 10px 10px;
+        background-color: var(--bg-dice-color);
+        & .menu-toggle
         {
-            cursor: pointer;
-            & .input-link
+            display: none;
+        }
+        & menu.menu-cube-navigation
+        {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: var(--item-menu-spacing);
+            list-style: none;
+            & li.item-menu-cube-navigation
             {
-                display: none;
-                .label-link:has(&:checked)
+                width: var(--item-menu-width);
+                text-align: center;
+                & .label-link
                 {
-                    text-decoration: underline;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                    width: 100%;
+                    & .input-link
+                    {
+                        display: none;
+                        .label-link:has(&:checked)
+                        {
+                            text-decoration: underline;
+                        }
+                    }
+                    & span
+                    {
+                        position: absolute;
+                        bottom: calc(50% - 1em );
+                        opacity: 0;
+                        transition: bottom .5s, opacity .5s;
+                        .input-link:checked ~ &
+                        {
+                            bottom: calc(75% - 1em );
+                            opacity: 1;
+                        }
+                    }
+                    & img
+                    {
+                        width: 2em;
+                        height: 2em;
+                        position: absolute;
+                        z-index: 5;
+                        transition: bottom .5s;
+                        translate: 0 50%;
+                        bottom: 50%;
+                        .input-link:checked ~ &
+                        {
+                            bottom: 0;
+                        }
+                    }
                 }
             }
+            & ~ .menu-indicator
+            {
+                --default-left-position: calc(var(--item-menu-width) / 2 + var(--item-menu-spacing));
+                position: absolute;
+                height: var(--indicator-size);
+                width: var(--indicator-size);
+                border: 5px solid var(--bg-color);
+                background-color: var(--border-color);
+                border-radius: 50%;
+                bottom: 0;
+                translate: -50% 50%;
+                transition: left .4s linear;
+            }
+            &:has(#f1:checked) ~ .menu-indicator
+            {
+                left: var(--default-left-position);
+            }
+            &:has(#f2:checked) ~ .menu-indicator
+            {
+                left: calc(var(--default-left-position) + (var(--item-menu-width) + var(--item-menu-spacing)));
+            }
+            &:has(#f3:checked) ~ .menu-indicator
+            {
+                left: calc(var(--default-left-position) + (var(--item-menu-width) + var(--item-menu-spacing)) * 2);
+            }
+            &:has(#f4:checked) ~ .menu-indicator
+            {
+                left: calc(var(--default-left-position) + (var(--item-menu-width) + var(--item-menu-spacing)) * 3);
+            }
+            &:has(#f5:checked) ~ .menu-indicator
+            {
+                left: calc(var(--default-left-position) + (var(--item-menu-width) + var(--item-menu-spacing)) * 4);
+            }
+            &:has(#f6:checked) ~ .menu-indicator
+            {
+                left: calc(var(--default-left-position) + (var(--item-menu-width) + var(--item-menu-spacing)) * 5);
+            }
         }
+        
     }
 }

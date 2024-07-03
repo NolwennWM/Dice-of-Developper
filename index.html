@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
-    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./assets/styles/style.css">
 </head>
-<body class="">
+<body class="cube-portfolio">
     <header class="portfolio-header" id="page-control">
+        <!-- button for disable dice launch -->
         <label class="btn-toggle animation-toggle" for="check-animation">
             <span class="slider">
                 <svg viewBox="0 0 400 400" width="200" height="200" stroke-width="10" fill="none" stroke="black"  xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" id="anime-level-icon">
@@ -20,32 +21,60 @@
             </span>
             <input type="checkbox" class="check-toggle" id="check-animation" checked>
         </label>
+        <!-- Navigation Menu -->
         <nav class="cube-navigation">
-            <label for="f1" class="label-link">
-                <input type="radio" name="faces" id="f1" class="input-link" checked>
-                <span>Accueil</span>
+            <!-- Burger menu for narrow menu -->
+            <label for="input-menu" class="menu-toggle">
+                <input type="checkbox" id="input-menu">
+                <img src="./assets/images/burger.svg" alt="Icone de menu">
             </label>
-            <label for="f2" class="label-link">
-                <input type="radio" name="faces" id="f2" class="input-link">
-                <span>Projets</span>
-            </label>
-            <label for="f3" class="label-link">
-                <input type="radio" name="faces" id="f3" class="input-link">
-                <span>À propos</span>
-            </label>
-            <label for="f4" class="label-link">
-                <input type="radio" name="faces" id="f4" class="input-link">
-                <span>Compétences</span>
-            </label>
-            <label for="f5" class="label-link">
-                <input type="radio" name="faces" id="f5" class="input-link">
-                <span>Contact</span>
-            </label>
-            <label for="f6" class="label-link">
-                <input type="radio" name="faces" id="f6" class="input-link">
-                <span>Page 6</span>
-            </label>
+            <menu class="menu-cube-navigation">
+                <li class="item-menu-cube-navigation">
+                    <label for="f1" class="label-link">
+                        <input type="radio" name="faces" id="f1" class="input-link" checked>
+                        <span>Accueil</span>
+                        <img src="./assets/images/home.svg" alt="icone de page d'Accueil" class="icon-section">
+                    </label>
+                </li>
+                <li class="item-menu-cube-navigation">
+                    <label for="f2" class="label-link">
+                        <input type="radio" name="faces" id="f2" class="input-link">
+                        <span>Projets</span>
+                        <img src="./assets/images/projects.svg" alt="icone de page des projets" class="icon-section">
+                    </label>
+                </li>
+                <li class="item-menu-cube-navigation">
+                    <label for="f3" class="label-link">
+                        <input type="radio" name="faces" id="f3" class="input-link">
+                        <span>À propos</span>
+                        <img src="./assets/images/about.svg" alt="icone de page à propos" class="icon-section">
+                    </label>
+                </li>
+                <li class="item-menu-cube-navigation">
+                    <label for="f4" class="label-link">
+                        <input type="radio" name="faces" id="f4" class="input-link">
+                        <span>Compétences</span>
+                        <img src="./assets/images/skills.svg" alt="icone de page des Compétences" class="icon-section">
+                    </label>
+                </li>
+                <li class="item-menu-cube-navigation">
+                    <label for="f5" class="label-link">
+                        <input type="radio" name="faces" id="f5" class="input-link">
+                        <span>Contact</span>
+                        <img src="./assets/images/contact.svg" alt="icone de page de Contact" class="icon-section">
+                    </label>
+                </li>
+                <li class="item-menu-cube-navigation">
+                    <label for="f6" class="label-link">
+                        <input type="radio" name="faces" id="f6" class="input-link">
+                        <span>Page 6</span>
+                        <img src="./assets/images/other.svg" alt="icone de page de ???" class="icon-section">
+                    </label>
+                </li>
+            </menu>
+            <div class="menu-indicator"></div>
         </nav>
+        <!-- Button for dark mode -->
         <label class="btn-toggle theme-toggle" for="check-theme">
             <input type="checkbox" class="check-toggle" id="check-theme">
             <span class="slider">
@@ -56,10 +85,13 @@
             </span>
         </label>
     </header>
+    <!-- Main container -->
     <main class="container">
         <div class="cube-container">
             <div class="cube">
+                <!-- Home Page -->
                 <div class="face face-1">
+                    <img src="./assets/images/home.svg" alt="icone de page d'Accueil" class="icon-section">
                     <section class="face-content">
                         <h2>Présentation</h2>
                         <p>
@@ -67,26 +99,39 @@
                             Développeur web et web mobile.
                         </p>
                         <p>
-                            Je développe habituellement en JS et PHP, pour un plus grand détail je vous invite à rejoindre la page "compétences"
+                            Je développe habituellement en JS et PHP mais pour ce site j'ai décidé de me lancer le challenge de ne faire que du HTML et du CSS, pour un plus grand détail je vous invite à rejoindre la page "compétences". <br>
+                            Vous trouverez aussi mon portfolio sous forme de livre de conte à l'adresse suivante : <br>
+                            <a href="TODO">Les Contes d'un Développeur</a> 
                         </p>
                     </section>
                 </div>
+                <!-- Project Page -->
                 <div class="face face-2">
+                    <img src="./assets/images/projects.svg" alt="icone de page des projets" class="icon-section">
                     <section class="face-content">
                     </section>                    
                 </div>
+                <!-- About Page -->
                 <div class="face face-3">
+                    <img src="./assets/images/about.svg" alt="icone de page à propos" class="icon-section">
                     <section class="face-content"></section>
                 </div>
+                <!-- Skills Page -->
                 <div class="face face-4">
+                    <img src="./assets/images/skills.svg" alt="icone de page des Compétences" class="icon-section">
                     <section class="face-content"></section>
                 </div>
+                <!-- Contact Page -->
                 <div class="face face-5">
+                    <img src="./assets/images/contact.svg" alt="icone de page de Contact" class="icon-section">
                     <section class="face-content"></section>
                 </div>
+                <!-- TODO Page -->
                 <div class="face face-6">
+                    <img src="./assets/images/other.svg" alt="icone de page de ???" class="icon-section">
                     <section class="face-content"></section>
                 </div>
+                <!-- Side faces for mobile dice -->
                 <div class="face face-7"></div>
                 <div class="face face-8"></div>
             </div>
