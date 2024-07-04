@@ -12,10 +12,11 @@
     --text-nav-color: black;
     --border-color: #b4b8c0;
     --border-color-translucent: #b4b8c080;
+    --icon-filter: none;
     /* Navbar Settings */
     --item-menu-width: 90px;
     --item-menu-spacing: 20px;
-    --indicator-size: 70px;
+    --indicator-size: 60px;
     --toggle-width: 100px;
     --toggle-height: 50px;
     /* Cube Settings */
@@ -31,10 +32,13 @@
     --cube-move-y: 0dvh;
     --cube-move-rotation: 0.5, 1, 2;
 }
+/* Dark Mode */
 :root:has(input#check-theme:checked)
 {
+    /* Colors Settings */
     --bg-color: #0e1217;
     --bg-dice-color: #1c1f26;
     --text-nav-color: #cccccc;
     --border-color: #545b6a;
+    --icon-filter: invert(100%);
 }

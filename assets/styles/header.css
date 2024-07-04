@@ -7,7 +7,7 @@ header.portfolio-header
     height: 70px;
     font-family: monospace, 'Courier New', Courier;
     padding-bottom: 5px;
-
+    /* Toggle Buttons for themes and animations */
     & label.btn-toggle
     {
         display: flex;
@@ -112,7 +112,6 @@ header.portfolio-header
             }
             .animation-toggle &
             {
-                /* background-color: skyblue; */
                 & svg#anime-level-icon
                 {
                     width: 80%;
@@ -139,6 +138,7 @@ header.portfolio-header
             }
         }
     }
+    /* Navigation */
     & nav.cube-navigation
     {
         position: relative;
@@ -199,6 +199,7 @@ header.portfolio-header
                         transition: bottom .5s;
                         translate: 0 50%;
                         bottom: 50%;
+                        filter: var(--icon-filter);
                         .input-link:checked ~ &
                         {
                             bottom: 0;

@@ -87,6 +87,7 @@ main.container
                 width: 50cqmin;
                 height: 50cqmin;
                 transition: opacity 0.4s var(--cube-duration-launch) linear;
+                filter: var(--icon-filter);
             }
         }
         header#page-control:has(.input-link:active) ~ main.container &, header#page-control:has(.animation-toggle #check-animation:checked) ~ main.container &
