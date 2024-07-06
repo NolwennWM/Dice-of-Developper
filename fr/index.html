@@ -26,49 +26,53 @@
             <!-- Burger menu for narrow menu -->
             <label for="input-menu" class="menu-toggle">
                 <input type="checkbox" id="input-menu">
-                <img src="../assets/images/burger.svg" alt="Icone de menu">
+                <svg viewBox="0 0 400 400" width="200" height="200" stroke-width="20" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke="black" fill="none">
+                    <path class="l1" d="M 50 100 H 350 A 30,30,0,1,0,325,50 L 50 350" stroke-dasharray="825"/>
+                    <path class="l2" d="M 50 200 H 350" stroke-dasharray="300" />
+                    <path class="l3" d="M 50 300 H 350 A 30,30,0,1,1,325,350 L 50 50" stroke-dasharray="825" />
+                </svg>
             </label>
             <menu class="menu-cube-navigation">
                 <li class="item-menu-cube-navigation">
                     <label for="f1" class="label-link">
                         <input type="radio" name="faces" id="f1" class="input-link" checked>
                         <span>Accueil</span>
-                        <img src="../assets/images/home.svg" alt="icone de page d'Accueil" class="icon-section">
+                        <img src="../assets/images/icons/home.svg" alt="icone de page d'Accueil" class="icon-section">
                     </label>
                 </li>
                 <li class="item-menu-cube-navigation">
                     <label for="f2" class="label-link">
                         <input type="radio" name="faces" id="f2" class="input-link">
                         <span>Projets</span>
-                        <img src="../assets/images/projects.svg" alt="icone de page des projets" class="icon-section">
+                        <img src="../assets/images/icons/projects.svg" alt="icone de page des projets" class="icon-section">
                     </label>
                 </li>
                 <li class="item-menu-cube-navigation">
                     <label for="f3" class="label-link">
                         <input type="radio" name="faces" id="f3" class="input-link">
                         <span>À propos</span>
-                        <img src="../assets/images/about.svg" alt="icone de page à propos" class="icon-section">
+                        <img src="../assets/images/icons/about.svg" alt="icone de page à propos" class="icon-section">
                     </label>
                 </li>
                 <li class="item-menu-cube-navigation">
                     <label for="f4" class="label-link">
                         <input type="radio" name="faces" id="f4" class="input-link">
                         <span>Compétences</span>
-                        <img src="../assets/images/skills.svg" alt="icone de page des Compétences" class="icon-section">
+                        <img src="../assets/images/icons/skills.svg" alt="icone de page des Compétences" class="icon-section">
                     </label>
                 </li>
                 <li class="item-menu-cube-navigation">
                     <label for="f5" class="label-link">
                         <input type="radio" name="faces" id="f5" class="input-link">
                         <span>Contact</span>
-                        <img src="../assets/images/contact.svg" alt="icone de page de Contact" class="icon-section">
+                        <img src="../assets/images/icons/contact.svg" alt="icone de page de Contact" class="icon-section">
                     </label>
                 </li>
                 <li class="item-menu-cube-navigation">
                     <label for="f6" class="label-link">
                         <input type="radio" name="faces" id="f6" class="input-link">
-                        <span>Page 6</span>
-                        <img src="../assets/images/other.svg" alt="icone de page de ???" class="icon-section">
+                        <span>Bonus</span>
+                        <img src="../assets/images/icons/other.svg" alt="icone de page de ???" class="icon-section">
                     </label>
                 </li>
             </menu>
@@ -91,8 +95,8 @@
             <div class="cube">
                 <!-- Home Page -->
                 <div class="face face-1">
-                    <img src="../assets/images/home.svg" alt="icone de page d'Accueil" class="icon-section">
-                    <section class="face-content">
+                    <img src="../assets/images/icons/home.svg" alt="icone de page d'Accueil" class="icon-section">
+                    <section class="face-content home">
                         <h2>Présentation</h2>
                         <p>
                             Bonjour, je suis Nolwenn WEBER-MARQUISET. <br>
@@ -103,33 +107,308 @@
                             Vous trouverez aussi mon portfolio sous forme de livre de conte à l'adresse suivante : <br>
                             <a href="/book">Les Contes d'un Développeur</a> 
                         </p>
+                        <p>
+                            Toute les images et logo de ce site sont de ma création, excepté les logos des langages et outils de développement qui ont été récupéré sur <a href="https://commons.wikimedia.org/wiki/Main_Page" target="_blank">Wikimedia Commons</a>.
+                        </p>
                     </section>
                 </div>
                 <!-- Project Page -->
                 <div class="face face-2">
-                    <img src="../assets/images/projects.svg" alt="icone de page des projets" class="icon-section">
-                    <section class="face-content">
+                    <img src="../assets/images/icons/projects.svg" alt="icone de page des projets" class="icon-section">
+                    <section class="face-content projects">
+                        <h2>Projets :</h2>
+                        <div class="projects-container">
+                            <!-- devtool -->
+                            <article class="project">
+                                <figure class="project-header">
+                                    <img src="../assets/images/projects/devtools.png" alt="Capture d'écran du site outils pour développeur">
+                                    <figcaption>
+                                        <h3>Outils pour Développeur</h3>
+                                        <ul class="tech logos list">
+                                            <li class="logo">
+                                                <img src="../assets/images/logo/HTML5_Logo.svg" alt="Logo HTML 5">
+                                            </li>
+                                            <li class="logo">
+                                                <img src="../assets/images/logo/CSS3_Logo.svg" alt="Logo CSS 3">
+                                            </li>
+                                            <li class="logo">
+                                                <img src="../assets/images/logo/Javascript_Logo.svg" alt="Logo Javascript">
+                                            </li>
+                                        </ul>
+                                    </figcaption>
+                                </figure>
+                                <div class="project-content">
+                                    <p>
+                                        Ce site regroupe des outils utiles au développement front-end.
+                                    </p>
+                                    <ul class="links list">
+                                        <li class="link">
+                                            <a href="https://dev.marquiset.fr" target="_blank">
+                                                <img src="../assets/images/icons/internet.svg" alt="Icone d'internet">
+                                            </a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="https://github.com/NolwennWM/webtool" target="_blank">
+                                                <img src="../assets/images/logo/Github_Logo.svg" alt="Logo de Github">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </article>
+                            <!-- portfolio angular -->
+                            <article class="project">
+                                <figure class="project-header">
+                                    <img src="../assets/images/projects/devbook.png" alt="Capture d'écran du site les contes d'un développeur">
+                                    <figcaption>
+                                        <h3>Les Contes d'un Développeur</h3>
+                                        <ul class="tech logos list">
+                                            <li class="logo">
+                                                <img src="../assets/images/logo/HTML5_Logo.svg" alt="Logo HTML 5">
+                                            </li>
+                                            <li class="logo">
+                                                <img src="../assets/images/logo/Sass_Logo.svg" alt="Logo SASS">
+                                            </li>
+                                            <li class="logo">
+                                                <img src="../assets/images/logo/Typescript_Logo.svg" alt="Logo Typescript">
+                                            </li>
+                                            <li class="logo">
+                                                <img src="../assets/images/logo/Angular_Logo.svg" alt="Logo Angular">
+                                            </li>
+                                        </ul>
+                                    </figcaption>
+                                </figure>
+                                <div class="project-content">
+                                    <p>
+                                        Une autre version de mon portfolio. Celle ci est sous forme de livre de conte.
+                                    </p>
+                                    <ul class="links list">
+                                        <li class="link">
+                                            <a href="https://dev.marquiset.fr/book" target="_blank">
+                                                <img src="../assets/images/icons/internet.svg" alt="Icone d'internet">
+                                            </a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="https://github.com/NolwennWM/Book-of-Developper" target="_blank">
+                                                <img src="../assets/images/logo/Github_Logo.svg" alt="Logo de Github">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </article>
+                            <!-- L'effet Lune -->
+                            <article class="project">
+                                <figure class="project-header">
+                                    <img src="../assets/images/projects/leffet_lune.png" alt="Capture d'écran du site les contes d'un développeur">
+                                    <figcaption>
+                                        <h3>L'Effet Lune</h3>
+                                        <ul class="tech logos list">
+                                            <li class="logo">
+                                                <img src="../assets/images/logo/HTML5_Logo.svg" alt="Logo HTML 5">
+                                            </li>
+                                            <li class="logo">
+                                                <img src="../assets/images/logo/Sass_Logo.svg" alt="Logo SASS">
+                                            </li>
+                                            <li class="logo">
+                                                <img src="../assets/images/logo/Typescript_Logo.svg" alt="Logo Typescript">
+                                            </li>
+                                            <li class="logo">
+                                                <img src="../assets/images/logo/PHP_Logo.svg" alt="Logo PHP">
+                                            </li>
+                                            <li class="logo">
+                                                <img src="../assets/images/logo/Wordpress_Logo.svg" alt="Logo Wordpress">
+                                            </li>
+                                        </ul>
+                                    </figcaption>
+                                </figure>
+                                <div class="project-content">
+                                    <p>
+                                        Site fait sous wordpress avec WooCommerce. Le thème est fait depuis zero sans outils nocode. <br>
+                                        Seul le thème est disponible sur github.
+                                    </p>
+                                    <ul class="links list">
+                                        <li class="link">
+                                            <a href="https://leffetlune.com/" target="_blank">
+                                                <img src="../assets/images/icons/internet.svg" alt="Icone d'internet">
+                                            </a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="https://github.com/NolwennWM/L-effet-Lune" target="_blank">
+                                                <img src="../assets/images/logo/Github_Logo.svg" alt="Logo de Github">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </article>
+                            <!-- Multistream -->
+                            <article class="project">
+                                <figure class="project-header">
+                                    <img src="../assets/images/projects/multistream.png" alt="Capture d'écran du site les contes d'un développeur">
+                                    <figcaption>
+                                        <h3>Aeiou Stream</h3>
+                                        <ul class="tech logos list">
+                                            <li class="logo">
+                                                <img src="../assets/images/logo/HTML5_Logo.svg" alt="Logo HTML 5">
+                                            </li>
+                                            <li class="logo">
+                                                <img src="../assets/images/logo/CSS3_Logo.svg" alt="Logo CSS 3">
+                                            </li>
+                                            <li class="logo">
+                                                <img src="../assets/images/logo/Javascript_Logo.svg" alt="Logo Javascript">
+                                            </li>
+                                        </ul>
+                                    </figcaption>
+                                </figure>
+                                <div class="project-content">
+                                    <p>
+                                        Site regroupant plusieurs lecteur video pour du streaming. <br>
+                                        Les lecteurs sont ceux du github de <a href="https://github.com/AirenSoft/OvenPlayer" target="_blank">OvenPlayer</a>. <br>
+                                        Seul l'interface multistream est de mon oeuvre. <br>
+                                        Le projet étant fait pour être utilisé entre amis, le site ne sera pas révélé.
+                                    </p>
+                                    <ul class="links list">
+                                        <li class="link">
+                                            <a href="https://github.com/NolwennWM/aeiou-stream-web" target="_blank">
+                                                <img src="../assets/images/logo/Github_Logo.svg" alt="Logo de Github">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </article>
+                            <!-- galerie photo -->
+                            <article class="project">
+                                <figure class="project-header">
+                                    <img src="../assets/images/projects/galerie.png" alt="Capture d'écran du site outils pour développeur">
+                                    <figcaption>
+                                        <h3>Galerie Photo</h3>
+                                        <ul class="tech logos list">
+                                            <li class="logo">
+                                                <img src="../assets/images/logo/Piwigo_Logo.svg" alt="Logo Piwigo">
+                                            </li>
+                                        </ul>
+                                    </figcaption>
+                                </figure>
+                                <div class="project-content">
+                                    <p>
+                                        Galerie photo de mes voyages. <br>
+                                        Car il faut savoir parfois ne pas réinventer la roue, ce site est fait avec le CMS Piwigo.
+                                    </p>
+                                    <ul class="links list">
+                                        <li class="link">
+                                            <a href="https://photo.marquiset.fr" target="_blank">
+                                                <img src="../assets/images/icons/internet.svg" alt="Icone d'internet">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </article>
+                        </div>
                     </section>                    
                 </div>
                 <!-- About Page -->
                 <div class="face face-3">
-                    <img src="../assets/images/about.svg" alt="icone de page à propos" class="icon-section">
-                    <section class="face-content"></section>
+                    <img src="../assets/images/icons/about.svg" alt="icone de page à propos" class="icon-section">
+                    <section class="face-content about">
+                        <h2>Qui suis-je ?</h2>
+                        <p>
+                            Nolwenn WEBER-MARQUISET pour vous servir.
+                        </p>
+                        <h3>Parcours Professionnel</h3>
+                        <p>
+                            Passionné par la création en tout genre. Que ce soit artistique, artisanal, ou la programmation, 
+                            je me suis naturellement orienté vers cette dernière qui me permet à la fois de laisser libre cours à mon imagination tout en m'offrant des défis et des énigmes des plus excquises. <br>
+                            J'ai développé mon premier site internet un peu avant 2010, bien qu'à cette époque je touchais au développement comme un loisir, PHP, Python étaient des jouet à mes yeux. <br>
+                            J'ai décidé de professionnalisé ce loisir que bien plus tard en 2018 et j'ai obtenu mon premier titre professionnel de développeur web et web mobile en 2019. <br>
+                            Bien que j'ai travaillé pour de multiples entreprises, la seule experience qui mérite d'être citée ici est la suivante : <br>
+                            Depuis 2021 je suis formateur en Développement web et web mobile à l'<abbr title="Agence de Formation et de Conseil en Insertion">AFCI</abbr>.
+                        </p>
+                        <h3>Activités Extra-Professionnelles</h3>
+                        <p>
+                            J'ai été membre de plusieurs groupes et associations et j'ai participé à l'organisation de nombreux évènements.
+                        </p>
+                        <h4>
+                            L'Association "Japon et Culture"
+                            <a href="https://www.japon-culture.com" target="_blank">
+                                <img src="../assets/images/icons/internet.svg" alt="Icone d'internet" class="external-link-icon">
+                            </a>
+                        </h4>
+                        <p>
+                            Cette association à pour but de promouvoir la culture japonaise. Si son commité d'administration est composé de bénévoles français. Les cours de langue et autres qui sont enseignés par cette association sont tenus par des employés d'origine japonaise. <br>
+                            Si j'y ai commencé comme simple membre, cela fait maintenant plusieurs années que j'y agis au titre de vice-trésorier. 
+                        </p>
+                        <h4>
+                            L'Association "Les irrécupérables du jeu de rôle"
+                            <a href="https://www.facebook.com/profile.php?id=61556202272484&locale=fr_FR" target="_blank">
+                                <img src="../assets/images/icons/internet.svg" alt="Icone d'internet" class="external-link-icon">
+                            </a>
+                        </h4>
+                        <p>
+                            Association de jeu de rôle et de grandeur nature. J'y ai là aussi commencé en tant que simple membre avant d'en devenir vice-président pour soutenir le président et aider à organiser les évènements. <br>
+                            Je me suis occupé de la relation avec les marchands qui venaient sur nos évènements (entre 30 et 50 marchands par évènements) ainsi que de leurs placement. <br>
+                            J'ai fini par laisser ma place de vice-président en 2023 à quelqu'un de plus interessé par cette place, puis en 2024 j'ai laissé ma place à l'organisation des évènements afin d'avoir plus de temps à accorder à la programmation.
+                            
+                        </p>
+                        <h3>Inspirations</h3>
+                        <p>
+                            Pour avoir une idée de ce que je peux avoir en tête, voici les personnes célèbres qui m'inspirent le plus chacun à leur façon :
+                        </p>
+                        <ul>
+                            <li>Terry Pratchett</li>
+                            <li>Masahiro Sakurai (桜井 政博)</li>
+                            <li>Benoît Theveny</li>
+                        </ul>
+                    </section>
                 </div>
                 <!-- Skills Page -->
                 <div class="face face-4">
-                    <img src="../assets/images/skills.svg" alt="icone de page des Compétences" class="icon-section">
-                    <section class="face-content"></section>
+                    <img src="../assets/images/icons/skills.svg" alt="icone de page des Compétences" class="icon-section">
+                    <section class="face-content skills">
+                        <h2>Mes Compétences :</h2>
+                        <div class="animation-container">
+                            <!-- géré l'animation, puis l'apparition, disparition du texte avec input:radio -->
+                            <div class="cercle">
+                                <div class="logo"><img decoding="async" loading="lazy" data-skill="html" src="../assets/images/logo/HTML5_Logo.svg" alt="logo HTML 5" draggable="false"></div>
+                                <div class="logo"><img decoding="async" loading="lazy" data-skill="css" src="../assets/images/logo/CSS3_Logo.svg" alt="logo CSS 3" draggable="false"></div>
+                                <div class="logo"><img decoding="async" loading="lazy" data-skill="sass" src="../assets/images/logo/Sass_Logo.svg" alt="logo SASS" draggable="false"></div>
+                                <div class="logo"><img decoding="async" loading="lazy" data-skill="js" src="../assets/images/logo/Javascript_Logo.svg" alt="logo Javascript" draggable="false"></div>
+                                <div class="logo"><img decoding="async" loading="lazy" data-skill="jquery" src="../assets/images/logo/JQuery_Logo.svg" alt="logo JQuery" draggable="false"></div>
+                                <div class="logo"><img decoding="async" loading="lazy" data-skill="ts" src="../assets/images/logo/Typescript_Logo.svg" alt="logo Typescript" draggable="false"></div>
+                                <div class="logo"><img decoding="async" loading="lazy" data-skill="angular" src="../assets/images/logo/Angular_Logo.svg" alt="logo Angular" draggable="false"></div>
+                                <div class="logo"><img decoding="async" loading="lazy" data-skill="mysql" src="../assets/images/logo/MySQL_Logo.svg" alt="logo MySQL" draggable="false"></div>
+                                <div class="logo"><img decoding="async" loading="lazy" data-skill="php" src="../assets/images/logo/PHP_Logo.svg" alt="logo PHP" draggable="false"></div>
+                                <div class="logo"><img decoding="async" loading="lazy" data-skill="symfony" src="../assets/images/logo/Symfony_logo.svg" alt="logo Symfony" draggable="false"></div>
+                            </div>
+                            <div class="detail-container">
+                                <div class="detail-left">
+                                    <div class="detail-right">
+                                        <div class="detail detail-html"></div>
+                                        <div class="detail detail-css"></div>
+                                        <div class="detail detail-sass"></div>
+                                        <div class="detail detail-javascript"></div>
+                                        <div class="detail detail-jquery"></div>
+                                        <div class="detail detail-typescript"></div>
+                                        <div class="detail detail-angular"></div>
+                                        <div class="detail detail-mysql"></div>
+                                        <div class="detail detail-php"></div>
+                                        <div class="detail detail-symfony"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
                 <!-- Contact Page -->
                 <div class="face face-5">
-                    <img src="../assets/images/contact.svg" alt="icone de page de Contact" class="icon-section">
-                    <section class="face-content"></section>
+                    <img src="../assets/images/icons/contact.svg" alt="icone de page de Contact" class="icon-section">
+                    <section class="face-content contact">
+                        <h2>Me Contacter :</h2>
+                    </section>
                 </div>
-                <!-- TODO Page -->
+                <!-- Gift Page -->
                 <div class="face face-6">
-                    <img src="../assets/images/other.svg" alt="icone de page de ???" class="icon-section">
-                    <section class="face-content"></section>
+                    <img src="../assets/images/icons/other.svg" alt="icone de page de ???" class="icon-section">
+                    <section class="face-content bonus">
+                        <h2>Bonus :</h2>
+                    </section>
                 </div>
                 <!-- Side faces for mobile dice -->
                 <div class="face face-7"></div>

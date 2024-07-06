@@ -12,6 +12,8 @@
     --text-nav-color: black;
     --border-color: #b4b8c0;
     --border-color-translucent: #b4b8c080;
+    --article-border-color: black;
+    --article-shadow-color: rgba(0, 0, 0, 0.5);
     --icon-filter: none;
     /* Navbar Settings */
     --item-menu-width: 90px;
@@ -40,5 +42,7 @@
     --bg-dice-color: #1c1f26;
     --text-nav-color: #cccccc;
     --border-color: #545b6a;
+    --article-border-color: #a5a5a5;
+    --article-shadow-color: #a5a5a580;
     --icon-filter: invert(100%);
 }

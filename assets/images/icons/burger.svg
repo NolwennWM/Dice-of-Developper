@@ -1,0 +1,5 @@
+<svg viewBox="0 0 400 400" width="200" height="200" stroke-width="20" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke="black" fill="none">
+    <path d="M 50 100 H 350 A 30,30,0,1,0,325,50 L 50 350" stroke-dasharray="825" stroke-dashoffset="525"/>
+    <path d="M 50 200 H 350" stroke-dasharray="300" stroke-dashoffset="0"/>
+    <path d="M 50 300 H 350 A 30,30,0,1,1,325,350 L 50 50" stroke-dasharray="825" stroke-dashoffset="525"/>
+</svg>

@@ -1,0 +1,7 @@
+<svg viewBox="0 0 400 400" width="200" height="200" stroke-width="20" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke="black" fill="none">
+    <path d="M 200 100 L 175 50 A 50,40,0,1,0,125,100 M 200 100 L 225 50 A 50,40,0,1,1,275,100" />
+    <rect x="25" y="100" width="350" height="50" rx="20" ry="20" />
+    <rect x="50" y="150" width="300" height="225" rx="20" ry="20"/>
+    <line x1="200" x2="200" y1="100" y2="375"/>
+    <line x1="50" x2="350" y1="260" y2="260" />
+</svg>
