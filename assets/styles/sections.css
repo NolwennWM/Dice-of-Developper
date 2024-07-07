@@ -64,4 +64,94 @@ section.face-content
             }
         }
     }
+    &.skills
+    {
+        overflow: hidden;
+        & .animation-container
+        {
+            width: 100%;
+            aspect-ratio: 1/1;
+            overflow: hidden;
+            position: relative;
+            caret-color: transparent;
+            & .circle
+            {
+                position: relative;
+                z-index: 1;
+                width: 100%;
+                height: 100%;
+                aspect-ratio: 1/1;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                animation: rotate-circle 60s linear infinite;
+                & .logo
+                {
+                    width: 12%;
+                    aspect-ratio: 1/1; 
+                    position: absolute;
+                    & img
+                    {
+                        width: 100%;
+                        height: 100%;
+                        animation: rotate-circle 60s linear infinite reverse;
+                    }
+                    &:nth-child(1)
+                    {
+                        transform: rotate(0) translate(350%) rotate(0);
+                    }
+                    &:nth-child(2)
+                    {
+                        transform: rotate(36deg) translate(350%) rotate(-36deg);
+                    }
+                    &:nth-child(3)
+                    {
+                        transform: rotate(72deg) translate(350%) rotate(-72deg);
+                    }
+                    &:nth-child(4)
+                    {
+                        transform: rotate(108deg) translate(350%) rotate(-108deg);
+                    }
+                    &:nth-child(5)
+                    {
+                        transform: rotate(144deg) translate(350%) rotate(-144deg);
+                    }
+                    &:nth-child(6)
+                    {
+                        transform: rotate(180deg) translate(350%) rotate(-180deg);
+                    }
+                    &:nth-child(7)
+                    {
+                        transform: rotate(216deg) translate(350%) rotate(-216deg);
+                    }
+                    &:nth-child(8)
+                    {
+                        transform: rotate(252deg) translate(350%) rotate(-252deg);
+                    }
+                    &:nth-child(9)
+                    {
+                        transform: rotate(288deg) translate(350%) rotate(-288deg);
+                    }
+                    &:nth-child(10)
+                    {
+                        transform: rotate(324deg) translate(350%) rotate(-324deg);
+                    }
+                }
+            }
+        }
+    }
+    &.contact
+    {
+        & img
+        {
+            width: 50px;
+        }
+    }
+}
+
+@keyframes rotate-circle 
+{
+    0% { transform: rotate(0);}    
+    100% { transform: rotate(360deg);}    
 }
