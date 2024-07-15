@@ -33,10 +33,13 @@ main.container
             position: absolute;
             width: inherit;
             height: inherit;
-            /* backface-visibility: hidden; */
+            backface-visibility: hidden;
             translate: 0 0 calc(100cqw / 2 * -1);
             border: 2cqw solid var(--border-color);
             background-color: var(--bg-dice-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
             &.face-1
             {
                 translate: 0 0 calc(100cqw / 2);
@@ -82,9 +85,6 @@ main.container
             {
                 z-index: 1;
                 position: absolute;
-                top: 50%;
-                left: 50%;
-                translate: -50% -50%;
                 width: 50cqmin;
                 height: 50cqmin;
                 transition: opacity 0.4s var(--cube-duration-launch) linear;
@@ -121,6 +121,10 @@ main.container
                     opacity: 1;
                 }
             }
+            & .face:not(.face-1) .face-content > *
+            {
+                display: none;
+            }
         }
         header:has(#f2:checked) ~ main.container &
         {
@@ -140,7 +144,12 @@ main.container
                     opacity: 1;
                 }
             }
+            & .face:not(.face-2) .face-content > *
+            {
+                display: none;
+            }
         }
+        
         header:has(#f3:checked) ~ main.container &
         {
             rotate: y 90deg; 
@@ -158,6 +167,10 @@ main.container
                 {
                     opacity: 1;
                 }
+            }
+            & .face:not(.face-3) .face-content > *
+            {
+                display: none;
             }
         }
         header:has(#f4:checked) ~ main.container &
@@ -178,6 +191,10 @@ main.container
                     opacity: 1;
                 }
             }
+            & .face:not(.face-4) .face-content > *
+            {
+                display: none;
+            }
         }
         header:has(#f5:checked) ~ main.container &
         {
@@ -197,6 +214,10 @@ main.container
                     opacity: 1;
                 }
             }
+            & .face:not(.face-5) .face-content > *
+            {
+                display: none;
+            }
         }
         header:has(#f6:checked) ~ main.container &
         {
@@ -215,6 +236,10 @@ main.container
                 {
                     opacity: 1;
                 }
+            }
+            & .face:not(.face-6) .face-content > *
+            {
+                display: none;
             }
         }
     }
