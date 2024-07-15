@@ -1,0 +1,19 @@
+.test
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100px;
+    background-color: grey;
+    &.test1
+    {
+        clip-path: path("M 0 0 L 200 100 V 0 Z");
+        scale: 3;
+        /* Ou alors des svg ? */
+    }
+    &.test2
+    {
+        clip-path: path("M 0 0 L 200 100 H 0 Z");
+    }
+}
