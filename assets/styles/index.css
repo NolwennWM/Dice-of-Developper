@@ -1,0 +1,69 @@
+*[class], ::before, ::after
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root
+{
+    --first-bg-color: blue;
+    --second-bg-color: yellow;
+}
+body.home-page
+{
+    overflow: hidden;
+}
+main.container
+{
+    background-image: linear-gradient(45deg, var(--first-bg-color) 50%, var(--second-bg-color) 50%);
+    height: 100dvh;
+    width: 100dvw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & div.circle
+    {
+        border-radius: 50%;
+        backdrop-filter: invert(100%);
+        aspect-ratio: 1/1;
+        width: 40vmin;
+        /* TODO impression de hauteur */
+        box-shadow: 5px 5px rgba(0, 0, 0, 0.466), -5px -5px rgba(0, 0, 0, 0.514);
+        & div.circle-container
+        {
+            border-radius: 50%;
+            width: 100%;
+            aspect-ratio: 1/1;
+            position: absolute;
+            &.dice-container
+            {
+                clip-path:polygon(0 0, 100% 0, 100% 100%);
+                & img
+                {
+                    top: 15%;
+                    right: 25%;
+                }
+            }
+            &.book-container
+            {
+                clip-path:polygon(0 0, 0 100%, 100% 100%);
+                & img
+                {
+                    bottom: 25%;
+                    left: 25%;
+                }
+            }
+            & a
+            {
+                display: block;
+                width: 100%;
+                height: 100%;
+                & img
+                {
+                    width: 25%;
+                    position: absolute;
+                }
+            }
+        }
+    }
+}
