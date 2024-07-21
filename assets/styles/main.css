@@ -5,6 +5,7 @@ body
     display: grid;
     grid-template-rows: auto 1fr;
     background-color: var(--bg-color);
+    background-image: linear-gradient(var(--bg-color), var(--bg-color-gradient));
     color: var(--text-nav-color);
 }
 main.container
@@ -21,6 +22,21 @@ main.container
         height: var(--cube-size);
         transform-style: preserve-3d;
     }
+    & .shadow
+    {
+        width: 100cqmax;
+        height: 100cqmax;
+        background-color: rgba(0, 0, 0, 0.363);
+        border-radius: 50%;
+        position: absolute;
+        translate: 0 0 -100cqw;
+        top: 0;
+        rotate: 0deg !important;
+        header#page-control:has(.input-link:checked) ~ main.container &
+        {
+            animation: launch-shadow var(--cube-animation-launch);
+        }
+    }
     & .cube
     {
         width: 100cqw;
@@ -35,8 +51,10 @@ main.container
             height: inherit;
             backface-visibility: hidden;
             translate: 0 0 calc(100cqw / 2 * -1);
-            border: 2cqw solid var(--border-color);
             background-color: var(--bg-dice-color);
+            background-image: linear-gradient(var(--bg-dice-color), var(--bg-dice-color-gradient));
+            border: 2cqw solid var(--border-color);
+            border-image: linear-gradient(var(--border-color), var(--border-color-gradient)) 30;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -91,7 +109,8 @@ main.container
                 filter: var(--icon-filter);
             }
         }
-        header#page-control:has(.input-link:active) ~ main.container &, header#page-control:has(.animation-toggle #check-animation:checked) ~ main.container &
+        /* header#page-control:has(.input-link:active) ~ main.container &, header#page-control:has(.animation-toggle #check-animation:checked) ~ main.container & */
+        header#page-control:where(:has(.input-link:active), :has(.animation-toggle #check-animation:checked)) ~ main.container :where(&, .shadow:has(+ &))
         {
             animation: none !important;
             & .face img.icon-section, & .face section.face-content
@@ -103,7 +122,7 @@ main.container
         {
             animation: launch-dice var(--cube-animation-launch);
         }
-        header:has(#f1:checked) ~ main.container &
+        header:has(#f1:checked) ~ main.container :where(&, .shadow:has(+ &))
         {
             rotate: x 0;
             --cube-move-x: 100dvw;
@@ -126,7 +145,7 @@ main.container
                 display: none;
             }
         }
-        header:has(#f2:checked) ~ main.container &
+        header:has(#f2:checked) ~ main.container :where(&, .shadow:has(+ &))
         {
             rotate: x 90deg; 
             --cube-move-x: -100dvw;
@@ -150,7 +169,7 @@ main.container
             }
         }
         
-        header:has(#f3:checked) ~ main.container &
+        header:has(#f3:checked) ~ main.container :where(&, .shadow:has(+ &))
         {
             rotate: y 90deg; 
             --cube-move-x: -50dvw;
@@ -173,7 +192,7 @@ main.container
                 display: none;
             }
         }
-        header:has(#f4:checked) ~ main.container &
+        header:has(#f4:checked) ~ main.container :where(&, .shadow:has(+ &))
         {
             rotate: y -90deg; 
             --cube-move-x: 50dvw;
@@ -196,7 +215,7 @@ main.container
                 display: none;
             }
         }
-        header:has(#f5:checked) ~ main.container &
+        header:has(#f5:checked) ~ main.container :where(&, .shadow:has(+ &))
         {
             rotate: y 180deg; 
             --cube-move-x: 1px;
@@ -219,7 +238,7 @@ main.container
                 display: none;
             }
         }
-        header:has(#f6:checked) ~ main.container &
+        header:has(#f6:checked) ~ main.container :where(&, .shadow:has(+ &))
         {
             rotate: x -90deg; 
             --cube-move-x: -200dvw;
@@ -275,5 +294,32 @@ main.container
         scale: 1;
         translate: 0 0 0;
         transform: rotate3D(1, 1, 1, 0);
+    }
+}
+@keyframes launch-shadow
+{
+    0%
+    {
+        translate: 0 0 0;
+        scale: 1;
+    }
+    25%
+    {
+        scale: 0.7 0.7 0.7;
+        translate: calc(var(--cube-move-x) / 2) calc(var(--cube-move-y) / 2) calc(var(--cube-size) * 50 *-1);
+    }
+    50%
+    {
+        translate: var(--cube-move-x) var(--cube-move-y) calc(var(--cube-size) * 50 *-1);
+
+    }
+    75%
+    {
+        translate: var(--cube-move-x) var(--cube-move-y) calc(var(--cube-size) * 50 *-1);
+    }
+    100%
+    {
+        scale: 1;
+        translate: 0 0 0;
     }
 }

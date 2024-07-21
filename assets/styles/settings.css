@@ -7,10 +7,13 @@
 :root
 {
     /* Colors Settings */
-    --bg-color: antiquewhite;
-    --bg-dice-color: #f5f8fc;
+    --bg-color: #99CCA7;
+    --bg-color-gradient: #79A284;
+    --bg-dice-color: #CBB699;
+    --bg-dice-color-gradient: #C3AF93;
     --text-nav-color: black;
-    --border-color: #b4b8c0;
+    --border-color: #776955;
+    --border-color-gradient: #4D4437;
     --border-color-translucent: #b4b8c080;
     --article-border-color: black;
     --article-shadow-color: rgba(0, 0, 0, 0.5);
@@ -39,9 +42,12 @@
 {
     /* Colors Settings */
     --bg-color: #0e1217;
+    --bg-color-gradient: #324152;
     --bg-dice-color: #1c1f26;
+    --bg-dice-color-gradient: #485062;
     --text-nav-color: #cccccc;
     --border-color: #545b6a;
+    --border-color-gradient: #848FA7;
     --article-border-color: #a5a5a5;
     --article-shadow-color: #a5a5a580;
     --icon-filter: invert(100%);
