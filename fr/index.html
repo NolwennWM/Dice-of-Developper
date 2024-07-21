@@ -367,30 +367,90 @@
                         <div class="animation-container">
                             <!-- géré l'animation, puis l'apparition, disparition du texte avec input:radio -->
                             <div class="circle">
-                                <div class="logo"><img decoding="async" loading="lazy" data-skill="html" src="../assets/images/logo/HTML5_Logo.svg" alt="logo HTML 5" draggable="false"></div>
-                                <div class="logo"><img decoding="async" loading="lazy" data-skill="css" src="../assets/images/logo/CSS3_Logo.svg" alt="logo CSS 3" draggable="false"></div>
-                                <div class="logo"><img decoding="async" loading="lazy" data-skill="sass" src="../assets/images/logo/Sass_Logo.svg" alt="logo SASS" draggable="false"></div>
-                                <div class="logo"><img decoding="async" loading="lazy" data-skill="js" src="../assets/images/logo/Javascript_Logo.svg" alt="logo Javascript" draggable="false"></div>
-                                <div class="logo"><img decoding="async" loading="lazy" data-skill="jquery" src="../assets/images/logo/JQuery_Logo.svg" alt="logo JQuery" draggable="false"></div>
-                                <div class="logo"><img decoding="async" loading="lazy" data-skill="ts" src="../assets/images/logo/Typescript_Logo.svg" alt="logo Typescript" draggable="false"></div>
-                                <div class="logo"><img decoding="async" loading="lazy" data-skill="angular" src="../assets/images/logo/Angular_Logo.svg" alt="logo Angular" draggable="false"></div>
-                                <div class="logo"><img decoding="async" loading="lazy" data-skill="mysql" src="../assets/images/logo/MySQL_Logo.svg" alt="logo MySQL" draggable="false"></div>
-                                <div class="logo"><img decoding="async" loading="lazy" data-skill="php" src="../assets/images/logo/PHP_Logo.svg" alt="logo PHP" draggable="false"></div>
-                                <div class="logo"><img decoding="async" loading="lazy" data-skill="symfony" src="../assets/images/logo/Symfony_logo.svg" alt="logo Symfony" draggable="false"></div>
+                                <label class="logo" for="skill-html"><img decoding="async" loading="lazy" data-skill="html" src="../assets/images/logo/HTML5_Logo.svg" alt="logo HTML 5" draggable="false"></label>
+                                <label class="logo" for="skill-css"><img decoding="async" loading="lazy" data-skill="css" src="../assets/images/logo/CSS3_Logo.svg" alt="logo CSS 3" draggable="false"></label>
+                                <label class="logo" for="skill-sass"><img decoding="async" loading="lazy" data-skill="sass" src="../assets/images/logo/Sass_Logo.svg" alt="logo SASS" draggable="false"></label>
+                                <label class="logo" for="skill-js"><img decoding="async" loading="lazy" data-skill="js" src="../assets/images/logo/Javascript_Logo.svg" alt="logo Javascript" draggable="false"></label>
+                                <label class="logo" for="skill-jquery"><img decoding="async" loading="lazy" data-skill="jquery" src="../assets/images/logo/JQuery_Logo.svg" alt="logo JQuery" draggable="false"></label>
+                                <label class="logo" for="skill-typescript"><img decoding="async" loading="lazy" data-skill="ts" src="../assets/images/logo/Typescript_Logo.svg" alt="logo Typescript" draggable="false"></label>
+                                <label class="logo" for="skill-angular"><img decoding="async" loading="lazy" data-skill="angular" src="../assets/images/logo/Angular_Logo.svg" alt="logo Angular" draggable="false"></label>
+                                <label class="logo" for="skill-mysql"><img decoding="async" loading="lazy" data-skill="mysql" src="../assets/images/logo/MySQL_Logo.svg" alt="logo MySQL" draggable="false"></label>
+                                <label class="logo" for="skill-php"><img decoding="async" loading="lazy" data-skill="php" src="../assets/images/logo/PHP_Logo.svg" alt="logo PHP" draggable="false"></label>
+                                <label class="logo" for="skill-symfony"><img decoding="async" loading="lazy" data-skill="symfony" src="../assets/images/logo/Symfony_logo.svg" alt="logo Symfony" draggable="false"></label>
                             </div>
                             <div class="detail-container">
                                 <div class="detail-left">
                                     <div class="detail-right">
-                                        <div class="detail detail-html"></div>
-                                        <div class="detail detail-css"></div>
-                                        <div class="detail detail-sass"></div>
-                                        <div class="detail detail-javascript"></div>
-                                        <div class="detail detail-jquery"></div>
-                                        <div class="detail detail-typescript"></div>
-                                        <div class="detail detail-angular"></div>
-                                        <div class="detail detail-mysql"></div>
-                                        <div class="detail detail-php"></div>
-                                        <div class="detail detail-symfony"></div>
+                                        <article class="detail detail-html">
+                                            <input type="radio" name="skill-text" id="skill-html" checked>
+                                            <h3>HTML</h3>
+                                            <p>
+                                                Test HTML
+                                            </p>
+                                        </article>
+                                        <article class="detail detail-css">
+                                            <input type="radio" name="skill-text" id="skill-css">
+                                            <h3>CSS</h3>
+                                            <p>
+                                                Test CSS
+                                            </p>
+                                        </article>
+                                        <article class="detail detail-sass">
+                                            <input type="radio" name="skill-text" id="skill-sass">
+                                            <h3>SASS</h3>
+                                            <p>
+                                                Test SASS
+                                            </p>
+                                        </article>
+                                        <article class="detail detail-javascript">
+                                            <input type="radio" name="skill-text" id="skill-js">
+                                            <h3>Javascript</h3>
+                                            <p>
+                                                Test JS
+                                            </p>
+                                        </article>
+                                        <article class="detail detail-jquery">
+                                            <input type="radio" name="skill-text" id="skill-jquery">
+                                            <h3>JQuery</h3>
+                                            <p>
+                                                Test jquery
+                                            </p>
+                                        </article>
+                                        <article class="detail detail-typescript">
+                                            <input type="radio" name="skill-text" id="skill-typescript">
+                                            <h3>Typescript</h3>
+                                            <p>
+                                                Test typescript
+                                            </p>
+                                        </article>
+                                        <article class="detail detail-angular">
+                                            <input type="radio" name="skill-text" id="skill-angular">
+                                            <h3>Angular</h3>
+                                            <p>
+                                                Test Angular
+                                            </p>
+                                        </article>
+                                        <article class="detail detail-mysql">
+                                            <input type="radio" name="skill-text" id="skill-mysql">
+                                            <h3>MySQL</h3>
+                                            <p>
+                                                Test Mysql
+                                            </p>
+                                        </article>
+                                        <article class="detail detail-php">
+                                            <input type="radio" name="skill-text" id="skill-php">
+                                            <h3>PHP</h3>
+                                            <p>
+                                                Test  PHP
+                                            </p>
+                                        </article>
+                                        <article class="detail detail-symfony">
+                                            <input type="radio" name="skill-text" id="skill-symfony">
+                                            <h3>Symfony</h3>
+                                            <p>
+                                                test Symfony
+                                            </p>
+                                        </article>
                                     </div>
                                 </div>
                             </div>
