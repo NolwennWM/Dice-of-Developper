@@ -1,0 +1,4 @@
+Sitemap: https://www.marquiset.fr/sitemap.xml
+Sitemap: https://www.marquiset.fr/book/sitemap.xml
+User-agent: *
+Disallow:
