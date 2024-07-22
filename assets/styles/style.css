@@ -1,9 +1,9 @@
 @import url("./settings.css");
-@import url("./header.css");
-@import url("./main.css");
-@import url("./sections.css");
-@import url("./narrow-screen.css") screen and ((width < 900px));
-@import url("./mobile.css") screen and ((width < 500px) or (height < 500px));
-@import url("./mobile-portrait.css") screen and (width < 500px) and (orientation: portrait);
-@import url("./mobile-landscape.css") screen and (height < 500px) and (orientation: landscape);
+@import url("./dice/header.css");
+@import url("./dice/main.css");
+@import url("./faces/sections.css");
+@import url("./responsive/narrow-screen.css") screen and ((width < 900px));
+@import url("./responsive/mobile.css") screen and ((width < 500px) or (height < 500px));
+@import url("./responsive/mobile-portrait.css") screen and (width < 500px) and (orientation: portrait);
+@import url("./responsive/mobile-landscape.css") screen and (height < 500px) and (orientation: landscape);
 

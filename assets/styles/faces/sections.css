@@ -1,0 +1,29 @@
+@import url("./projects.css");
+@import url("./skills.css");
+section.face-content
+{
+    overflow-x: hidden;
+    overflow-y: auto;
+    
+    &.about
+    {
+        & h4
+        {
+            display: flex;
+            justify-content: space-between;
+            & .external-link-icon
+            {
+                width: 25px;
+                height: 25px;
+            }
+        }
+    }
+    
+    &.contact
+    {
+        & img
+        {
+            width: 50px;
+        }
+    }
+}
