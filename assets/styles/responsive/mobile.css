@@ -74,3 +74,137 @@ main.container .cube-container .cube
         --cube-rotation: 60deg;
     } 
 }
+.skills
+{
+    display: grid;
+    grid-template-rows: auto 1fr;
+    & .animation-container
+    {
+        aspect-ratio: unset;
+        height: 100%;
+        & .circle
+        {
+            animation: none;
+            position: relative;
+            & .logo
+            {
+                animation: square-move 60s infinite linear backwards;
+                transform: none!important;
+                width: 20cqmin;
+                & img
+                {
+                    animation: none;
+                }
+                &:nth-child(1)
+                {
+                    animation-delay: -6s;
+                    left: 0;
+                    top: 0;
+                }
+                &:nth-child(2)
+                {
+                    animation-delay: -12s;
+                    left: 0;
+                }
+                &:nth-child(3)
+                {
+                    animation-delay: -18s;
+                    left: 0;
+                    bottom: 0;
+                }
+                &:nth-child(4)
+                {
+                    animation-delay: -24s;
+                    left: 20cqmin;
+                    top: 0;
+                }
+                &:nth-child(5)
+                {
+                    animation-delay: -30s;
+                    left: 20cqmin;
+                    bottom: 0;
+                }
+                &:nth-child(6)
+                {
+                    animation-delay: -36s;
+                    right: 0;
+                }
+                &:nth-child(7)
+                {
+                    animation-delay: -42s;
+                    right: 0;
+                    top: 0;
+                }
+                &:nth-child(8)
+                {
+                    animation-delay: -48s;
+                    right: 0;
+                    bottom: 0;
+                }
+                &:nth-child(9)
+                {
+                    animation-delay: -54s;
+                    right: 20cqmin;
+                    top: 0;
+                }
+                &:nth-child(10)
+                {
+                    animation-delay: 0;
+                    right: 20cqmin;
+                    bottom: 0;
+                }
+            }
+        }
+        & .detail-container
+        {
+            & .detail-left, & .detail-right
+            {
+                &::before
+                {
+                    content: unset;
+                }
+                & .detail
+                {
+                    width: calc(100% - 40cqmin);
+                    height: calc(100% - 40cqmin);
+                    margin: 20cqmin auto;
+                    padding: 0 5px;
+                    & h3
+                    {
+                        display: block;
+                        margin: 0;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}
+@keyframes square-move 
+{
+    0%{
+        top: 0;
+        left: 0;
+        translate: 0;
+    }    
+    25%{
+        top: 0;
+        left: 100%;
+        translate: -100% 0;
+    }
+    50%{
+        top: 100%;
+        left: 100%;
+        translate: -100% -100%;
+    }
+    75%{
+        top: 100%;
+        left: 0;
+        translate: 0 -100%;
+    }
+    100%{
+        top: 0;
+        left: 0;
+        translate: 0;
+    }
+}

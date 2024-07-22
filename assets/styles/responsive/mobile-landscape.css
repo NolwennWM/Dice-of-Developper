@@ -7,6 +7,19 @@ main.container .cube-container
         & .face
         {
             transform-origin: top;
+            & .skills
+            {
+                & .logo
+                {
+                    animation: none !important;
+                }
+                & .detail
+                {
+                    width: calc(100% - 80cqmin);
+                    height: fit-content;
+                    margin: auto;
+                }
+            }
             &.face-1
             {
                 translate: 0 0 calc(sqrt(3) / 2 * 100cqh);
