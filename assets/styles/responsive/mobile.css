@@ -74,7 +74,7 @@ main.container .cube-container .cube
         --cube-rotation: 60deg;
     } 
 }
-.skills
+section.face-content.skills
 {
     display: grid;
     grid-template-rows: auto 1fr;
