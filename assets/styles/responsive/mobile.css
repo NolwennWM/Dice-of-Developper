@@ -84,16 +84,16 @@ main.container .cube-container .cube
         height: 100%;
         & .circle
         {
-            animation: none;
+            animation: none !important;
             position: relative;
             & .logo
             {
                 animation: square-move 60s infinite linear backwards;
-                transform: none!important;
+                transform: none !important;
                 width: 20cqmin;
                 & img
                 {
-                    animation: none;
+                    animation: none !important;
                 }
                 &:nth-child(1)
                 {
