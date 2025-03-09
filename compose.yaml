@@ -1,0 +1,27 @@
+services:
+  web:
+    build: .
+    container_name: server_apache
+    ports:
+      - 8080:80
+    depends_on:
+      - db
+    restart: unless-stopped
+    environment:
+      DB_HOST: ${DB_HOST}
+      DB_USER: ${DB_USER}
+      DB_PWD: ${DB_PWD}
+      DB_NAME: ${DB_NAME}
+    volumes:
+      - ./src:/var/www/html
+  db:
+    image: mariadb
+    container_name: server_sql
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: ${DB_PWD}
+    volumes:
+      - ./database:/docker-entrypoint-initdb.d
+      - portfoliodata:/var/lib/mysql
+volumes:
+  portfoliodata: {}

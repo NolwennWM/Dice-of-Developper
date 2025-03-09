@@ -112,34 +112,22 @@
                 <div class="face face-1">
                     <img src="../assets/images/icons/home.svg" alt="icone de page d'Accueil" class="icon-section">
                     <section class="face-content home">
-                        <h2>Présentation</h2>
-                        <p>
-                            <img src="../assets/images/photo-min.jpg" alt="Photo de Nolwenn" class="profile-photo">
-                            Bonjour, je suis Nolwenn WEBER-MARQUISET. <br>
-                            Développeur web et web mobile.
-                        </p>
-                        <p>
-                            Je développe habituellement en JS et PHP mais pour ce site j'ai décidé de me lancer le challenge de ne faire que du HTML et du CSS, pour un plus grand détail je vous invite à rejoindre la page <label for="f4" class="intern-link">"compétences"</label>. <br>
-                            Vous trouverez aussi mon portfolio sous forme de livre de conte à l'adresse suivante : <br>
-                            <a href="/book">Les Contes d'un Développeur</a> 
-                        </p>
-                        <p>
-                            Toute les images et logo de ce site sont de ma création, excepté les logos des langages et outils de développement qui ont été récupéré sur <a href="https://commons.wikimedia.org/wiki/Main_Page" target="_blank">Wikimedia Commons</a>.
-                        </p>
+                        <?= $presentation["title"] ?>
+                        <?= $presentation["content"] ?>
                     </section>
                 </div>
                 <!-- Project Page -->
                 <div class="face face-2">
                     <img src="../assets/images/icons/projects.svg" alt="icone de page des projets" class="icon-section">
                     <section class="face-content projects">
-                        <h2>Projets :</h2>
+                        <?= $projects["title"] ?>
                         <div class="projects-container">
                             <!-- devtool -->
                             <article class="project">
                                 <figure class="project-header">
                                     <img src="../assets/images/projects/devtools.png" alt="Capture d'écran du site outils pour développeur">
                                     <figcaption>
-                                        <h3>Outils pour Développeur</h3>
+                                        <?= $project_devtool["title"] ?>
                                         <ul class="tech logos list">
                                             <li class="logo">
                                                 <img src="../assets/images/logo/HTML5_Logo.svg" alt="Logo HTML 5">
@@ -154,9 +142,7 @@
                                     </figcaption>
                                 </figure>
                                 <div class="project-content">
-                                    <p>
-                                        Ce site regroupe des outils utiles au développement front-end.
-                                    </p>
+                                    <?= $project_devtool["content"] ?>
                                     <ul class="links list">
                                         <li class="link">
                                             <a href="https://dev.marquiset.fr" target="_blank">
@@ -176,7 +162,7 @@
                                 <figure class="project-header">
                                     <img src="../assets/images/projects/devbook.png" alt="Capture d'écran du site les contes d'un développeur">
                                     <figcaption>
-                                        <h3>Les Contes d'un Développeur</h3>
+                                        <?= $project_portfolioBook["title"] ?>
                                         <ul class="tech logos list">
                                             <li class="logo">
                                                 <img src="../assets/images/logo/HTML5_Logo.svg" alt="Logo HTML 5">
@@ -194,9 +180,7 @@
                                     </figcaption>
                                 </figure>
                                 <div class="project-content">
-                                    <p>
-                                        Une autre version de mon portfolio. Celle ci est sous forme de livre de conte.
-                                    </p>
+                                    <?= $project_portfolioBook["content"] ?>
                                     <ul class="links list">
                                         <li class="link">
                                             <a href="https://dev.marquiset.fr/book" target="_blank">
@@ -216,7 +200,7 @@
                                 <figure class="project-header">
                                     <img src="../assets/images/projects/leffet_lune.png" alt="Capture d'écran du site les contes d'un développeur">
                                     <figcaption>
-                                        <h3>L'Effet Lune</h3>
+                                        <?= $project_effetLune["title"] ?>
                                         <ul class="tech logos list">
                                             <li class="logo">
                                                 <img src="../assets/images/logo/HTML5_Logo.svg" alt="Logo HTML 5">
@@ -237,10 +221,7 @@
                                     </figcaption>
                                 </figure>
                                 <div class="project-content">
-                                    <p>
-                                        Site fait sous wordpress avec WooCommerce. Le thème est fait depuis zero sans outils nocode. <br>
-                                        Seul le thème est disponible sur github.
-                                    </p>
+                                    <?= $project_effetLune["content"] ?>
                                     <ul class="links list">
                                         <li class="link">
                                             <a href="https://leffetlune.com/" target="_blank">
@@ -260,7 +241,7 @@
                                 <figure class="project-header">
                                     <img src="../assets/images/projects/multistream.png" alt="Capture d'écran du site les contes d'un développeur">
                                     <figcaption>
-                                        <h3>Aeiou Stream</h3>
+                                        <?= $project_aeiouStream["title"] ?>
                                         <ul class="tech logos list">
                                             <li class="logo">
                                                 <img src="../assets/images/logo/HTML5_Logo.svg" alt="Logo HTML 5">
@@ -275,12 +256,7 @@
                                     </figcaption>
                                 </figure>
                                 <div class="project-content">
-                                    <p>
-                                        Site regroupant plusieurs lecteur video pour du streaming. <br>
-                                        Les lecteurs sont ceux du github de <a href="https://github.com/AirenSoft/OvenPlayer" target="_blank">OvenPlayer</a>. <br>
-                                        Seul l'interface multistream est de mon oeuvre. <br>
-                                        Le projet étant fait pour être utilisé entre amis, le site ne sera pas révélé.
-                                    </p>
+                                    <?= $project_aeiouStream["content"] ?>
                                     <ul class="links list">
                                         <li class="link">
                                             <a href="https://github.com/NolwennWM/aeiou-stream-web" target="_blank">
@@ -295,7 +271,7 @@
                                 <figure class="project-header">
                                     <img src="../assets/images/projects/galerie.png" alt="Capture d'écran du site outils pour développeur">
                                     <figcaption>
-                                        <h3>Galerie Photo</h3>
+                                        <?= $project_galery["title"] ?>
                                         <ul class="tech logos list">
                                             <li class="logo">
                                                 <img src="../assets/images/logo/Piwigo_Logo.svg" alt="Logo Piwigo">
@@ -304,10 +280,7 @@
                                     </figcaption>
                                 </figure>
                                 <div class="project-content">
-                                    <p>
-                                        Galerie photo de mes voyages. <br>
-                                        Car il faut savoir parfois ne pas réinventer la roue, ce site est fait avec le CMS Piwigo.
-                                    </p>
+                                    <?= $project_galery["content"] ?>
                                     <ul class="links list">
                                         <li class="link">
                                             <a href="https://photo.marquiset.fr" target="_blank">
@@ -324,61 +297,21 @@
                 <div class="face face-3">
                     <img src="../assets/images/icons/about.svg" alt="icone de page à propos" class="icon-section">
                     <section class="face-content about">
-                        <h2>Qui suis-je ?</h2>
-                        <p>
-                            Nolwenn WEBER-MARQUISET, un développeur aux multiples compétences pour vous servir.
-                        </p>
-                        <h3>Parcours Professionnel</h3>
-                        <p>
-                            Passionné par la création en tout genre. Que ce soit artistique, artisanal, ou la programmation, 
-                            je me suis naturellement orienté vers cette dernière qui me permet à la fois de laisser libre cours à mon imagination tout en m'offrant des défis et des énigmes des plus excquises. <br>
-                            J'ai développé mon premier site internet un peu avant 2010, bien qu'à cette époque je touchais au développement comme un loisir, PHP, Python étaient des jouet à mes yeux. <br>
-                            J'ai décidé de professionnalisé ce loisir que bien plus tard en 2018 et j'ai obtenu mon premier titre professionnel de développeur web et web mobile en 2019. <br>
-                            Bien que j'ai travaillé pour de multiples entreprises, la seule experience qui mérite d'être citée ici est la suivante : <br>
-                            Depuis 2021 je suis formateur en Développement web et web mobile à l'<abbr title="Agence de Formation et de Conseil en Insertion">AFCI</abbr>. Ce métier m'a apporté de nombreuses connaissances et la mise en place de veilles technologiques effices afin de toujours apporter les meilleurs connaissances à mes stagiaires.
-                        </p>
-                        <h3>Activités Extra-Professionnelles</h3>
-                        <p>
-                            J'ai été membre de plusieurs groupes et associations et j'ai participé à l'organisation de nombreux évènements.
-                        </p>
-                        <h4>
-                            L'Association "Japon et Culture"
-                            <a href="https://www.japon-culture.com" target="_blank">
-                                <img src="../assets/images/icons/internet.svg" alt="Icone d'internet" class="external-link-icon">
-                            </a>
-                        </h4>
-                        <p>
-                            Cette association à pour but de promouvoir la culture japonaise. Si son commité d'administration est composé de bénévoles français. Les cours de langue et autres qui sont enseignés par cette association sont tenus par des employés d'origine japonaise. <br>
-                            Si j'y ai commencé comme simple membre, cela fait maintenant plusieurs années que j'y agis au titre de vice-trésorier. 
-                        </p>
-                        <h4>
-                            L'Association "Les irrécupérables du jeu de rôle"
-                            <a href="https://www.facebook.com/profile.php?id=61556202272484&locale=fr_FR" target="_blank">
-                                <img src="../assets/images/icons/internet.svg" alt="Icone d'internet" class="external-link-icon">
-                            </a>
-                        </h4>
-                        <p>
-                            Association de jeu de rôle et de grandeur nature. J'y ai là aussi commencé en tant que simple membre avant d'en devenir vice-président pour soutenir le président et aider à organiser les évènements. <br>
-                            Je me suis occupé de la relation avec les marchands qui venaient sur nos évènements (entre 30 et 50 marchands par évènements) ainsi que de leurs placement. <br>
-                            J'ai fini par laisser ma place de vice-président en 2023 à quelqu'un de plus interessé par cette place, puis en 2024 j'ai laissé ma place à l'organisation des évènements afin d'avoir plus de temps à accorder à la programmation.
-                            
-                        </p>
-                        <h3>Inspirations</h3>
-                        <p>
-                            Pour avoir une idée de ce que je peux avoir en tête, voici les personnes célèbres qui m'inspirent le plus chacun à leur façon :
-                        </p>
-                        <ul>
-                            <li>Terry Pratchett</li>
-                            <li>Masahiro Sakurai (桜井 政博)</li>
-                            <li>Benoît Theveny</li>
-                        </ul>
+                        <?= $whoAmI["title"] ?>
+                        <?= $whoAmI["content"] ?>
+                        <?= $careerPath["title"] ?>
+                        <?= $careerPath["content"] ?>
+                        <?= $otherActivities["title"] ?>
+                        <?= $otherActivities["content"] ?>
+                        <?= $inspirations["title"] ?>
+                        <?= $inspirations["content"] ?>
                     </section>
                 </div>
                 <!-- Skills Page -->
                 <div class="face face-4">
                     <img src="../assets/images/icons/skills.svg" alt="icone de page des Compétences" class="icon-section">
                     <section class="face-content skills">
-                        <h2>Mes Compétences :</h2>
+                        <?= $skills["title"] ?>
                         <div class="animation-container">
                             <!-- géré l'animation, puis l'apparition, disparition du texte avec input:radio -->
                             <div class="circle">
@@ -398,79 +331,53 @@
                                     <div class="detail-right">
                                         <article class="detail detail-html">
                                             <input type="radio" name="skill-text" id="skill-html" checked>
-                                            <h3>HTML</h3>
-                                            <p>
-                                                HTML, la base de tout site, j'ai appris à m'en servir il y a plus de 15 ans et je continue toujours d'apprendre. <br>
-                                                Cliquez sur une des icones pour plus d'information.
-                                            </p>
+                                            <?= $skill_html["title"] ?>
+                                            <?= $skill_html["content"] ?>
                                         </article>
                                         <article class="detail detail-css">
                                             <input type="radio" name="skill-text" id="skill-css">
-                                            <h3>CSS</h3>
-                                            <p>
-                                                Je possède de bien meilleurs qualités que le design. Cela dit, donnez moi n'importe quelle maquette et je vous la reproduirais sans problème.
-                                            </p>
+                                            <?= $skill_css["title"] ?>
+                                            <?= $skill_css["content"] ?>
                                         </article>
                                         <article class="detail detail-sass">
                                             <input type="radio" name="skill-text" id="skill-sass">
-                                            <h3>SASS</h3>
-                                            <p>
-                                                Il apporte des outils si pratique que plus d'un furent et continue d'être intégré à CSS. <br>
-                                                Vive le nesting.
-                                            </p>
+                                            <?= $skill_sass["title"] ?>
+                                            <?= $skill_sass["content"] ?>
                                         </article>
                                         <article class="detail detail-javascript">
                                             <input type="radio" name="skill-text" id="skill-js">
-                                            <h3>Javascript</h3>
-                                            <p>
-                                                Pour beaucoup de développeur, une des premières rencontres avec les algorithmes (la mienne fut en Python). <br>
-                                                Indispensable pour bien des sites, que ce soit en procedural ou en POO, je vous coderais ce que vous souhaitez.
-                                            </p>
+                                            <?= $skill_js["title"] ?>
+                                            <?= $skill_js["content"] ?>
                                         </article>
                                         <article class="detail detail-jquery">
                                             <input type="radio" name="skill-text" id="skill-jquery">
-                                            <h3>JQuery</h3>
-                                            <p>
-                                                Ce vieil ami à mes débuts en Javascript n'est plus aussi populaire qu'il le fut. Bien que j'ai aussi choisi de ne plus l'utiliser, il est pratique de le connaître car on le croise encore souvent en exemple ou sur d'ancien sites ayant besoin d'une mise à jour.
-                                            </p>
+                                            <?= $skill_jquery["title"] ?>
+                                            <?= $skill_jquery["content"] ?>
                                         </article>
                                         <article class="detail detail-typescript">
                                             <input type="radio" name="skill-text" id="skill-typescript">
-                                            <h3>Typescript</h3>
-                                            <p>
-                                                Quand javascript devient trop brouillon pour un gros projet, l'ami Typescript vient à la rescousse, apportant ce qu'il manque à javascript pour devenir un langage serieux.
-                                            </p>
+                                            <?= $skill_typescript["title"] ?>
+                                            <?= $skill_typescript["content"] ?>
                                         </article>
                                         <article class="detail detail-angular">
                                             <input type="radio" name="skill-text" id="skill-angular">
-                                            <h3>Angular</h3>
-                                            <p>
-                                                De tous les frameworks et libraries que j'ai pu testé pour la création de SPA, Angular est celle qui me convient le mieux. <br>
-                                                Sûrement grâce à son code orienté objet et les atouts de Typescript.
-                                            </p>
+                                            <?= $skill_angular["title"] ?>
+                                            <?= $skill_angular["content"] ?>
                                         </article>
                                         <article class="detail detail-mysql">
                                             <input type="radio" name="skill-text" id="skill-mysql">
-                                            <h3>MySQL</h3>
-                                            <p>
-                                                En vrai, MariaDB. Quoi qu'il en soit si il a pu m'arriver d'utiliser d'autres bases de données comme du NoSQL avec MongoDB, j'en reviens toujours à la structure si pratique du SQL. <br>
-                                                J'aime que les choses soient claires et bien triées.
-                                            </p>
+                                            <?= $skill_mysql["title"] ?>
+                                            <?= $skill_mysql["content"] ?>
                                         </article>
                                         <article class="detail detail-php">
                                             <input type="radio" name="skill-text" id="skill-php">
-                                            <h3>PHP</h3>
-                                            <p>
-                                                En perte de popularité, peut être mais toujours le roi du web. La majorité des sites tournent grâce à lui. Si je peux m'aventurer parfois sur d'autres voies avec plaisir, comme celle de NodeJS ou de Python; <br>
-                                                Lorsque je veux un projet solide, ma maison est celle de PHP.
-                                            </p>
+                                            <?= $skill_php["title"] ?>
+                                            <?= $skill_php["content"] ?>
                                         </article>
                                         <article class="detail detail-symfony">
                                             <input type="radio" name="skill-text" id="skill-symfony">
-                                            <h3>Symfony</h3>
-                                            <p>
-                                                Sécurisé, complet, peut être un peu lourd, cela reste quand même bien pratique de pouvoir réaliser pages, routes, formulaires et multiples autres tâches répétitives rapidement pour se concentrer sur le coeur du projet.
-                                            </p>
+                                            <?= $skill_symfony["title"] ?>
+                                            <?= $skill_symfony["content"] ?>
                                         </article>
                                     </div>
                                 </div>
@@ -482,21 +389,16 @@
                 <div class="face face-5">
                     <img src="../assets/images/icons/contact.svg" alt="icone de page de Contact" class="icon-section">
                     <section class="face-content contact">
-                        <h2>Me Contacter :</h2>
-                        <p>
-                            Ce site se voulant uniquement en HTML et CSS, pas de formulaire de contact. <br>
-                            J'ajouterais d'autres façons de me contacter par la suite,
-                            mais pour l'instant je vous invite à me contacter sur Linkedin. <br>
-                            <a href="https://www.linkedin.com/in/nolwenn-weber-marquiset-7a3349162/" target="_blank"><img src="../assets/images/logo/Linkedin_Logo.svg" alt="logo de linkedin"></a>
-                        </p>
+                        <?= $contactMe["title"] ?>
+                        <?= $contactMe["content"] ?>
                     </section>
                 </div>
                 <!-- Gift Page -->
                 <div class="face face-6">
                     <img src="../assets/images/icons/other.svg" alt="icone de page de ???" class="icon-section">
                     <section class="face-content bonus">
-                        <h2>Bonus :</h2>
-                        <p>Revenez plus tard et des secrets apparaîtrons ici.</p>
+                        <?= $bonus["title"] ?>
+                        <?= $bonus["content"] ?>
                     </section>
                 </div>
                 <!-- Side faces for mobile dice -->
