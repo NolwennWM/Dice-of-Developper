@@ -1,6 +1,6 @@
 <?php 
 const ROUTES = [
-    ""=>"index.php",
+    ""=>"index.html",
     "book"=>"book/index.html",
     "dice"=>"dice/index.php"
 ];
