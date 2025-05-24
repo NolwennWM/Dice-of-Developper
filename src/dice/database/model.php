@@ -9,7 +9,7 @@ require __DIR__."/database.php";
  */
 function getData(string $language)
 {
-    $pdo = connexionPDO();
+    $pdo = connexion_PDO(true);
 
     $stmt = $pdo->prepare("SELECT slug, title, content FROM page_content WHERE language = :lang");
 

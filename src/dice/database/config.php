@@ -4,8 +4,10 @@ return
     "host"=>$_ENV["DB_HOST"],
     "port"=>3306,
     "database"=> $_ENV["DB_NAME"],
-    "user"=> $_ENV["DB_USER"],
-    "password"=> $_ENV["DB_PWD"],
+    "username_admin"=> $_ENV["DB_USER_ADMIN"],
+    "password_admin"=> $_ENV["DB_PWD_ADMIN"],
+    "username_guest"=> $_ENV["DB_USER_GUEST"],
+    "password_guest"=> $_ENV["DB_PWD_GUEST"],
     "charset" => "utf8mb4",
     "options" => 
     [

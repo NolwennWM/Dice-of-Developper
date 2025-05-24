@@ -1,6 +1,7 @@
 <?php 
 require __DIR__."/database/model.php";
+global $router;
 
 $data = getData("fr");
 
-requirePage("dice/dice.php", $data);
+$router->requirePage("dice/dice.php", $data);

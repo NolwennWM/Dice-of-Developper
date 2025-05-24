@@ -9,9 +9,11 @@ services:
     restart: unless-stopped
     environment:
       DB_HOST: ${DB_HOST}
-      DB_USER: ${DB_USER}
-      DB_PWD: ${DB_PWD}
       DB_NAME: ${DB_NAME}
+      DB_USER_ADMIN: ${DB_USER_ADMIN}
+      DB_PWD_ADMIN: ${DB_PWD_ADMIN}
+      DB_USER_GUEST: ${DB_USER_GUEST}
+      DB_PWD_GUEST: ${DB_PWD_GUEST}
     volumes:
       - ./src:/var/www/html
   db:
@@ -19,7 +21,10 @@ services:
     container_name: server_sql
     restart: unless-stopped
     environment:
-      MARIADB_ROOT_PASSWORD: ${DB_PWD}
+      MARIADB_ROOT_PASSWORD: ${DB_PWD_ADMIN}
+      # TODO find how to limit guest grants
+      MARIADB_USER: ${DB_USER_GUEST}
+      MARIADB_PASSWORD: ${DB_PWD_GUEST}
     volumes:
       - ./database:/docker-entrypoint-initdb.d
       - portfoliodata:/var/lib/mysql

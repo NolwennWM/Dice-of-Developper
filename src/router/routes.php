@@ -1,6 +1,10 @@
 <?php 
+/**
+ * List of public route
+ */
 const ROUTES = [
-    ""=>"index.html",
+    ""=>"index.php",
     "book"=>"book/index.html",
-    "dice"=>"dice/index.php"
+    "dice"=>"dice/index.php",
+    "admin"=>"admin/index.php"
 ];
