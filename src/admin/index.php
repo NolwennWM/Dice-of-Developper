@@ -1,7 +1,5 @@
 <?php
-use Portfolio\Admin\Controller\Auth_Controller;
-
-session_start();
+if(session_status()!=PHP_SESSION_ACTIVE) session_start(); 
 
 require __DIR__."/routes_admin.php";
     

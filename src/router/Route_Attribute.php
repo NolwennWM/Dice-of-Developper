@@ -11,8 +11,9 @@ class Route_Attribute
      *
      * @param string $name
      * @param boolean $isLoggedAccess
+     * @param string $method
      */
-    public function __construct(private string $name="", private bool $isLoggedAccess = false) {}
+    public function __construct(private string $name="", private bool $isLoggedAccess = false, private string $method = "GET") {}
     /**
      * TODO
      *
@@ -20,7 +21,17 @@ class Route_Attribute
      */
     public function isValidRoute(string $checked_route): bool
     {
-        return $checked_route === $this->name;
+        if($checked_route === $this->name)
+        {
+            if($this->isValidMethod())
+            {
+                if($this->isGrantedAccess())
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
     /**
      * TODO
@@ -29,6 +40,18 @@ class Route_Attribute
      */
     public function isGrantedAccess(): bool
     {
-        return $this->isLoggedAccess? isset($_SESSION["admin"]):true;
+        if(!$this->isLoggedAccess || isset($_SESSION["admin"]))return true;
+        
+        header("Location: /admin/login");
+        exit;
+    }
+    /**
+     * TODO
+     *
+     * @return boolean
+     */
+    public function isValidMethod(): bool
+    {
+        return $this->method==="ANY"?true:$this->method === $_SERVER["REQUEST_METHOD"];
     }
 }

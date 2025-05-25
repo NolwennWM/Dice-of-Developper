@@ -116,11 +116,6 @@ class Router
             {
                 $routeAttribute = $attr->newInstance();
                 if(!$routeAttribute->isValidRoute($routeToCheck)) continue;
-                if(!$routeAttribute->isGrantedAccess())
-                {
-                    header("Location: /admin/login");
-                    exit;
-                }
                 $controller = $classReflector->newInstance();
                 $method->invoke($controller);
                 exit;
