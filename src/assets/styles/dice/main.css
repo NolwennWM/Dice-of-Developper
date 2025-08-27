@@ -1,6 +1,7 @@
 body
 {
     height: 100dvh;
+    max-width: 100dvw;
     overflow: hidden;
     display: grid;
     grid-template-rows: auto 1fr;
@@ -11,6 +12,7 @@ body
 main.container
 {
     display: flex;
+    overflow: hidden;
     justify-content: center;
     align-items: center;
     perspective: calc(var(--cube-size) * 10);

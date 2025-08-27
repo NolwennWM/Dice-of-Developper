@@ -52,3 +52,7 @@
     --article-shadow-color: #a5a5a580;
     --icon-filter: invert(100%);
 }
+svg:has(defs)
+{
+    display: none;
+}

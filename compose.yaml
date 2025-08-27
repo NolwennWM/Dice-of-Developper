@@ -7,26 +7,18 @@ services:
     depends_on:
       - db
     restart: unless-stopped
-    environment:
-      DB_HOST: ${DB_HOST}
-      DB_NAME: ${DB_NAME}
-      DB_USER_ADMIN: ${DB_USER_ADMIN}
-      DB_PWD_ADMIN: ${DB_PWD_ADMIN}
-      DB_USER_GUEST: ${DB_USER_GUEST}
-      DB_PWD_GUEST: ${DB_PWD_GUEST}
+    env_file: .env
     volumes:
       - ./src:/var/www/html
+      # - html:/var/www/html
   db:
     image: mariadb
     container_name: server_sql
     restart: unless-stopped
-    environment:
-      MARIADB_ROOT_PASSWORD: ${DB_PWD_ADMIN}
-      # TODO find how to limit guest grants
-      MARIADB_USER: ${DB_USER_GUEST}
-      MARIADB_PASSWORD: ${DB_PWD_GUEST}
+    env_file: .env
     volumes:
       - ./database:/docker-entrypoint-initdb.d
-      - portfoliodata:/var/lib/mysql
+      - data:/var/lib/mysql
 volumes:
-  portfoliodata: {}
+  data: null
+  html: null

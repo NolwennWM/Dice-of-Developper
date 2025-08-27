@@ -1,13 +1,13 @@
 <?php 
 namespace Portfolio\Router\Attribute;
 /**
- * TODO
+ * Route Attribute to define the route of a method in a controller
  */
 #[\Attribute(\Attribute::TARGET_METHOD)]
 class Route_Attribute
 {
     /**
-     * TODO
+     * Constructor of the Route Attribute
      *
      * @param string $name
      * @param boolean $isLoggedAccess
@@ -15,7 +15,7 @@ class Route_Attribute
      */
     public function __construct(private string $name="", private bool $isLoggedAccess = false, private string $method = "GET") {}
     /**
-     * TODO
+     * Check if the route is valid
      *
      * @return boolean
      */
@@ -34,7 +34,7 @@ class Route_Attribute
         return false;
     }
     /**
-     * TODO
+     * Check if the user is granted access
      *
      * @return boolean
      */
@@ -46,7 +46,7 @@ class Route_Attribute
         exit;
     }
     /**
-     * TODO
+     * Check if the method is valid
      *
      * @return boolean
      */

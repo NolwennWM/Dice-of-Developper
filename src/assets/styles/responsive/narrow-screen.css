@@ -106,3 +106,12 @@ header.portfolio-header
         }
     }
 }
+footer.portfolio-footer
+{
+    display: none;
+    z-index: 10;
+    header.portfolio-header:has(#input-menu:checked) ~ &
+    {
+        display: block;
+    }
+}

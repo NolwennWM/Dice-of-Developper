@@ -5,9 +5,9 @@ return
     "port"=>3306,
     "database"=> $_ENV["DB_NAME"],
     "username_admin"=> $_ENV["DB_USER_ADMIN"],
-    "password_admin"=> $_ENV["DB_PWD_ADMIN"],
-    "username_guest"=> $_ENV["DB_USER_GUEST"],
-    "password_guest"=> $_ENV["DB_PWD_GUEST"],
+    "password_admin"=> $_ENV["MARIADB_ROOT_PASSWORD"],
+    "username_guest"=> $_ENV["MARIADB_USER"],
+    "password_guest"=> $_ENV["MARIADB_PASSWORD"],
     "charset" => "utf8mb4",
     "options" => 
     [

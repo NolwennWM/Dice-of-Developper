@@ -1,11 +1,13 @@
 <?php
 /**
- * TODO
+ * Router class to manage the routing of the website
  */
 class Router
 {
     public $route_index = 0;
     public $current_route = [];
+    public $current_lang = "fr";
+    public $available_lang = ["fr", "en", "jp"];
     
     public function __construct()
     {
@@ -21,8 +23,16 @@ class Router
         $uri = filter_var($_SERVER["REQUEST_URI"], FILTER_SANITIZE_URL);
         $uri = explode("?",$uri)[0];
         $uri = trim($uri, "/");
+        $langs = [];
+        preg_match('/(?:^|\/)([a-z]{2})(?:\/|$)/', $uri, $langs);
         $uri = explode("/", $uri);
         $this->current_route = $uri;
+        if(isset($langs[1]) && in_array($langs[1], $this->available_lang))
+        {
+            $this->current_lang = $langs[1];
+            // TODO remove the lang part from the URI
+        }
+
         return $uri;
     }
     /**
@@ -44,7 +54,7 @@ class Router
         $this->getPageNotFound("page not found");
     }
     /**
-     * TODO
+     * Get the next part of the URI to check the route
      *
      * @return string
      */
@@ -70,8 +80,10 @@ class Router
         {
             foreach($data as $content)
             {
-                $name = $content["slug"]; 
-                $$name = $content;
+                $name = $content["prefix"]; 
+                $results = json_decode($content["grouped_content"], true);
+                $$name = count($results)===1 ? $results[0] : $results;
+                // echo $name, substr(json_encode($content),0, 1000), "<br>";
             }
 
             require $path;
@@ -96,12 +108,12 @@ class Router
         exit;
     }
     /**
-     * TODO
+     * call the controller class and the method with the route attribute
      *
-     * @param [type] $className
+     * @param object|string $className
      * @return void
      */
-    public function callControllerClass($className)
+    public function callControllerClass(object|string $className)
     {
         require __DIR__."/Route_Attribute.php";
 

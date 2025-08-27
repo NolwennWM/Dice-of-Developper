@@ -2,6 +2,6 @@
 require __DIR__."/database/model.php";
 global $router;
 
-$data = getData("fr");
+$data = getData($router->current_lang);
 
 $router->requirePage("dice/dice.php", $data);
