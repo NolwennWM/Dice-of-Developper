@@ -4,4 +4,13 @@ global $router;
 
 $data = getData($router->current_lang);
 
-$router->requirePage("dice/dice.php", $data);
+$converted_data = [];
+
+foreach($data as $content)
+{
+    $name = $content["prefix"]; 
+    $results = json_decode($content["grouped_content"], true);
+    $converted_data[$name] = count($results)===1 ? $results[0] : $results;
+}
+
+$router->requirePage("dice/dice.php", $converted_data);

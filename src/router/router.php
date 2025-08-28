@@ -4,14 +4,45 @@
  */
 class Router
 {
+    /** 
+     * Index of the currently checked route
+     * @var integer 
+     */
     public $route_index = 0;
+    /**
+     * array of string containing the current route
+     * @var array
+     */
     public $current_route = [];
+    /**
+     * Current language of the page
+     * @var string
+     */
     public $current_lang = "fr";
+    /**
+     * List of the Avaible languages
+     *
+     * @var array
+     */
     public $available_lang = ["fr", "en", "jp"];
+    /**
+     * Template where insert the pages.
+     * @var string
+     */
+    private $default_html = "";
+    /**
+     * Root path for the requires.
+     * @var string
+     */
+    private $rootPath = "";
+
+    private $controllerNamespace = "";
     
     public function __construct()
     {
+        $this->startSession();
         $this->getFilteredURI();
+        $this->setRootPath("");
     }
     /**
      * filter URI to get the different parts separetly
@@ -45,12 +76,11 @@ class Router
     public function pageRouting(array $routes): void
     {
         $route = $this->getNextRoutePart();
-
+        
         if(array_key_exists($route, $routes)){ 
             $this->requirePage($routes[$route]);
             exit;
         }
-        
         $this->getPageNotFound("page not found");
     }
     /**
@@ -70,32 +100,68 @@ class Router
      *
      * @param string $file path of the file
      * @param array $data data to send to the page
+     * @param array $toRender data to render in the HTML template
      * @return void
      */
-    public function requirePage(string $file, array $data = []): void
+    public function requirePage(string $file, array $data = [], array $toRender = []): void
     {
-        $path = __DIR__."/../".$file;
-
+        $path = $this->rootPath . $file;
+        
         if(file_exists($path))
         {
-            foreach($data as $content)
-            {
-                $name = $content["prefix"]; 
-                $results = json_decode($content["grouped_content"], true);
-                $$name = count($results)===1 ? $results[0] : $results;
-                // echo $name, substr(json_encode($content),0, 1000), "<br>";
-            }
+            ob_start();
 
-            require $path;
-            $fileName = basename($file, ".php");
-            if(class_exists($fileName))
+            foreach($data as $key => $value)
             {
-                $this->callControllerClass($fileName);
+                $$key = $value;
             }
+            require $path;
+
+            $content = ob_get_clean();
+
+            $this->render($content, $toRender);
+            
+            $fileName = basename($file, ".php");
+            $className = $this->controllerNamespace . $fileName;
+
+            if(class_exists($className))
+            {
+                $this->callControllerClass($className);
+            }
+            echo $content;
             exit;
         }
 
         $this->getPageNotFound("file not found");
+    }
+    /**
+     * Render the HTML template with the content and the data to render
+     *
+     * @param string $content content of the page
+     * @param array $toRender data to render in the HTML template
+     * @return void
+     */
+    private function render(string &$content, array $toRender = []): void
+    {
+        
+        $toRender["lang"] ??= $this->current_lang;
+        $toRender["title"] ??= "Document";
+
+        if(!empty($this->default_html))
+        {
+            $content = preg_replace('/\{\{\s*content\s*\}\}/', $content, $this->default_html);
+        }
+        foreach($toRender as $key => $value)
+        {
+            if (is_array($value)) 
+            {
+                $value = implode('<br>', $value);
+            }
+            $content = preg_replace('/\{\{\s*'.$key.'\s*\}\}/', $value, $content);
+        }
+        // remove unreplaced tags
+        $content = preg_replace('/\{\{\s*.+\s*\}\}/', "", $content);
+
     }
     /**
      * require the 404 page
@@ -134,5 +200,120 @@ class Router
             }
         }   
         $this->getPageNotFound("No Method found");
+    }
+
+    /**
+     * Set the default HTML template to use with the render method
+     *
+     * @param string $path
+     * @return void
+     */
+    public function setDefaultHTML(string $path):void
+    {
+        if(file_exists($path))
+        {
+            $this->default_html = file_get_contents($path);
+        }
+    }
+    /**
+     * Get the default HTML template
+     *
+     * @return string
+     */
+    public function getDefaultHTML():string
+    {
+        return $this->default_html;
+    }
+    /**
+     * Set the root path for the requirePage method
+     *
+     * @param string $path
+     * @return void
+     */
+    public function setRootPath(string $path):void
+    {
+        if(is_dir($path))
+        {
+            $this->rootPath = $path;
+        }
+        elseif(is_dir($_ENV["ROOT_PATH"]??""))
+        {
+            $this->rootPath = $_ENV["ROOT_PATH"];
+        }
+        else
+        {
+            $this->rootPath = __DIR__."/../";
+        }
+    }
+    /**
+     * Redirect to another page
+     *
+     * @param string $url URL to redirect to
+     * @param array $data data to send to the page
+     * @return void
+     */
+    public function redirect(string $url, array $data = []): void
+    {
+        if(!empty($data))
+        {
+            foreach($data as $key => $value)
+            {
+                $this->addFlashMessage($key, $value);
+            }
+        }
+        header("Location: ".$url);
+        exit;
+    }
+    /**
+     * Add a flash message to the session
+     *
+     * @param string $type type of the message (success, error, info, etc.)
+     * @param string|array $message message to display
+     * @return void
+     */
+    public function addFlashMessage(string $type, string|array $message): void
+    {
+        $_SESSION["flashes"][$type][] = $message;
+    }
+    /**
+     * Get the flash messages from the session and clear them
+     * When a type is specified, get only the messages of that type
+     *
+     * @param string $type type of the message (success, error, info, etc.)
+     * @return array array of messages
+     */
+    public function getFlashMessages(string $type = ""): array
+    {
+        if(!empty($type))
+        {
+            $flashes = $_SESSION["flashes"][$type] ?? [];
+            unset($_SESSION["flashes"][$type]);
+            return $flashes;
+        }
+        $flashes = $_SESSION["flashes"] ?? [];
+        unset($_SESSION["flashes"]);
+        return $flashes;
+    }
+    /**
+     * Start the session if not already started
+     *
+     * @return void
+     */
+    public function startSession(): void
+    {
+        if(session_status() === PHP_SESSION_NONE)
+        {
+            session_start();
+        }
+    }
+    /**
+     * Set the namespace for the controller classes
+     *
+     * @param string $namespace Use double backslash (\\) to separate the namespace parts
+     * @return void
+     */
+    public function setControllerNamespace(string $namespace): void
+    {
+        $this->controllerNamespace = $namespace . "\\";
     }
 }

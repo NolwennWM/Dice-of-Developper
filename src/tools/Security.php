@@ -8,7 +8,7 @@ class Security
         if (!isset($_SESSION["security"])) $_SESSION["security"] = [];
     }
     /**
-     * TODO
+     * Sanitize output to prevent XSS
      *
      * @param [type] $text
      * @return void
@@ -18,7 +18,7 @@ class Security
         echo htmlspecialchars($text);
     }
     /**
-     * TODO ajouter durée
+     * Generate a CSRF token and store it in session
      *
      * @return void
      */
@@ -30,7 +30,7 @@ class Security
         echo "<input type='hidden' name='csrf' value='$token'>";
     }
     /**
-     * TODO
+     * Validate the CSRF token from the form against the one in session
      *
      * @return boolean
      */
@@ -43,7 +43,7 @@ class Security
         return true;
     }
     /**
-     * TODO
+     * Generate a honey pot field to trap bots
      *
      * @param string $name
      * @param string $type
@@ -66,7 +66,7 @@ class Security
         echo $groupTag;
     }
     /**
-     * TODO
+     * Check if the honey pot field is filled
      *
      * @return boolean
      */

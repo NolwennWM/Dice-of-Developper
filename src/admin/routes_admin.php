@@ -4,6 +4,6 @@
  * Route "" forbidden
  */
 const ROUTES_ADMIN = [
-    "dashboard"=>"admin/controller/Main_Controller.php",
-    "login"=>"admin/controller/Auth_Controller.php"
+    "dashboard"=>"controller/Main_Controller.php",
+    "login"=>"controller/Auth_Controller.php"
 ];

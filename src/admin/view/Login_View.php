@@ -1,24 +1,20 @@
-<style>
-    body
-    {
-        background-color: lightslategray;
-        min-height: 100dvh;
-    }
-    .form-group.age
-    {
-        position: absolute;
-        left: -100%;
-    }
-</style>
+<form action="/admin/login/signin" method="post" class="login-form">
+    <span class="flash success">{{success}}</span>
 
-<form action="/admin/login/signin" method="post">
-    <label for="email">Email :</label>
-    <input type="email" name="email" id="email" autofocus>
-    <label for="password">Mot de passe :</label>
-    <input type="password" name="password" id="password">
+    <div class="form-group">
+        <label for="email">Email :</label>
+        <input type="email" name="email" id="email" autofocus>
+        <span class="flash error">{{email}}</span>
+    </div>
+    <div class="form-group">
+        <label for="password">Mot de passe :</label>
+        <input type="password" name="password" id="password">
+        <span class="flash error">{{password}}</span>
+    </div>
     <?php 
-        $this->security->set_csrf();
-        $this->security->set_honey_pot(groupClass:"form-group age");
+        $security->set_csrf();
+        $security->set_honey_pot(groupClass:"form-group age");
      ?>
+    <span class="flash error">{{security}}</span>
     <button type="submit">Connexion</button>
 </form>
