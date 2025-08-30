@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Nolwenn Weber-Marquiset">
+    <meta name="copyright" content="2024, Nolwenn Weber-Marquiset">
+    <meta name="description" content="Portfolio displaying skills and history of Nolwenn Weber-Marquiset">
+    <meta name="keywords" content="Nolwenn, html, css, javascript, portfolio">
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph for sns sharing -->
+    <meta property="og:title" content="Nolwenn Weber-Marquiset Portfolio">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.marquiset.fr/assets/images/projects/portfolio.png">
+    <meta property="og:url" content="https://www.marquiset.fr">
+    <meta property="og:description" content="Portfolio displaying skills and history of Nolwenn Weber-Marquiset">
+    <meta property="og:site_name" content="Nolwenn Weber-Marquiset Portfolio">
+    <meta property="og:locale" content="en_GB">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="/assets/styles/index.css">
+    <link rel="icon" type="image/svg+xml" href="/assets/images/nwm-logo-static-bg-white.svg">
+</head>
+<body class="home-page">
+    <h1 class="title">Nolwenn WEBER-MARQUISET</h1>
+    <main class="container">
+        <div class="circle">
+            <div class="dice-container circle-container">
+                <a href="/dice/fr">
+                     <span class="portfolio">Full CSS</span>
+                </a>
+            </div>
+            <div class="book-container circle-container">
+                <a href="/book">
+                     <span class="portfolio">Angular</span>
+                </a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

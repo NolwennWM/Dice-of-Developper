@@ -1,0 +1,48 @@
+@import url("./projects.css");
+@import url("./skills.css");
+section.face-content
+{
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-size: clamp(1em, 3vmin, 2em);
+    & .intern-link
+    {
+        text-decoration: underline;
+        color: #0000EE;
+        cursor: pointer;
+    }
+    &.home
+    {
+        
+        & .profile-photo
+        {
+            border-radius: 50%;
+            width: 25cqmax;
+            max-width: 40cqw;
+            max-height: 100cqh;
+            float: right;
+            opacity: 0.8;
+        }
+    }
+    &.about
+    {
+        & h4
+        {
+            display: flex;
+            justify-content: space-between;
+            & .external-link-icon
+            {
+                width: 25px;
+                height: 25px;
+            }
+        }
+    }
+    
+    &.contact
+    {
+        & img
+        {
+            width: 50px;
+        }
+    }
+}
