@@ -9,7 +9,7 @@ services:
     restart: unless-stopped
     env_file: .env
     volumes:
-      - ./src:/var/www/html
+      - ./app:/var/www/html
       # - html:/var/www/html
   db:
     image: mariadb

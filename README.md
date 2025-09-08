@@ -18,3 +18,4 @@ Pour le bon fonctionnement du site, des variables d'environnement peuvent ou doi
 |MARIADB_USER|name of the database's user|Yes|
 |MARIADB_PASSWORD|password of the database's user|Yes|
 |ROOT_PATH|root path for the router|No|
+|IP_WHITELIST|list of IP who can access to the admin panel|No|

@@ -39,12 +39,19 @@ class Router
     private $rootPath = "";
 
     private $controllerNamespace = "";
+    /**
+     * List of IP who can access to the admin panel
+     *
+     * @var array
+     */
+    private $whiteList = [];
     
     public function __construct()
     {
         $this->startSession();
         $this->getFilteredURI();
         $this->setRootPath("");
+        $this->setWhiteList();
     }
     /**
      * filter URI to get the different parts separetly
@@ -119,8 +126,10 @@ class Router
             require $path;
 
             $content = ob_get_clean();
-
-            $this->render($content, $toRender);
+            if(!empty($content))
+            {
+                $this->render($content, $toRender);
+            }
             
             $fileName = basename($file, ".php");
             $className = $this->controllerNamespace . $fileName;
@@ -149,7 +158,11 @@ class Router
         
         $toRender["lang"] ??= $this->current_lang;
         $toRender["title"] ??= "Document";
+        //TODO
 
+        // preg_match_all('/\{\{\s*.+\s*:\s*(.+?)\s*\}\}/', $content, $matches);
+
+        
         if(!empty($this->default_html))
         {
             $content = preg_replace('/\{\{\s*content\s*\}\}/', $content, $this->default_html);
@@ -319,5 +332,33 @@ class Router
     public function setControllerNamespace(string $namespace): void
     {
         $this->controllerNamespace = $namespace . "\\";
+    }
+    /**
+     * Set the list of IP who can access to the admin panel
+     * From an array or from the IP_WHITELIST env variable
+     *
+     * @return array
+     */
+    private function setWhiteList(array $ips = []):void
+    {
+        if(empty($ips) && !empty($_ENV["IP_WHITELIST"]))
+        {
+            $ips = explode(",", $_ENV["IP_WHITELIST"]);
+        }
+        if(!empty($ips))
+        {
+            $this->whiteList = array_map('trim', $ips);
+        }
+    }
+    /**
+     * Check if the user IP is in the white list
+     *
+     * @return bool
+     */
+    public function isInWhiteList(): bool
+    {
+        if(empty($this->whiteList)) return true;
+        $user_ip = $_SERVER['REMOTE_ADDR'] ?? '';
+        return in_array($user_ip, $this->whiteList);
     }
 }

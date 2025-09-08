@@ -10,9 +10,9 @@ use Portfolio\Admin\Core\Abstract\Abstract_Controller;
 class Main_Controller extends Abstract_Controller
 {
     #[Route_Attribute("", true)]
-    public function test1()
+    public function dashboard()
     {
-        echo "<br>test1<br>";
+       $this->router->requirePage("/View/Main/dashboard.php", [], ["title"=>"Admin - Tableau de bord", "body_class"=>"dashboard-page", "head"=>"<style"]);
 
     }
     #[Route_Attribute("test2", true)]

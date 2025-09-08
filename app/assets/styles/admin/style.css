@@ -8,7 +8,7 @@ body
 {
     display: none;
 }
-/* Login Page */
+/* Login and register Page */
 .login-page, .register-page
 {
     display: flex;
