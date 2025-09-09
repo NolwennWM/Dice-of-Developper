@@ -1,8 +1,3 @@
-<?php 
-$nbProjects = 42;
-$nbPages = 15;
-$languages = ['Français', 'English', 'Español'];
-?>
 {{ head: <link rel="stylesheet" href="/assets/styles/admin/dashboard.css"> }}
     <div class="dashboard-container">
         <h1>Tableau de bord du Portfolio</h1>

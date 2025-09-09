@@ -12,7 +12,10 @@ class Main_Controller extends Abstract_Controller
     #[Route_Attribute("", true)]
     public function dashboard()
     {
-       $this->router->requirePage("/View/Main/dashboard.php", [], ["title"=>"Admin - Tableau de bord", "body_class"=>"dashboard-page", "head"=>"<style"]);
+        $nbProjects = 42;
+        $nbPages = 15;
+        $languages = ['Français', 'English', 'Español'];
+       $this->router->requirePage("/View/Main/dashboard.php", [], ["title"=>"Admin - Tableau de bord", "body_class"=>"dashboard-page", "nbProjects"=>$nbProjects, "nbPages"=>$nbPages, "languages"=>$languages]);
 
     }
     #[Route_Attribute("test2", true)]
@@ -22,4 +25,3 @@ class Main_Controller extends Abstract_Controller
 
     }
 }
-//TODO pourquoi on est pas en 404

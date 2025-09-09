@@ -361,4 +361,21 @@ class Router
         $user_ip = $_SERVER['REMOTE_ADDR'] ?? '';
         return in_array($user_ip, $this->whiteList);
     }
+    /**
+     * Generate a text preview from HTML content
+     * Strip tags, trim whitespace, and limit to a specified number of characters
+     *
+     * @param string $html The HTML content to generate a preview from
+     * @param int $limit The maximum number of characters for the preview (default is 150)
+     * @return string The generated text preview
+     */
+    public function previewContent(string $html, int $limit = 150): string 
+    {
+        $text = strip_tags($html);
+        $text = trim(preg_replace('/\s+/', ' ', $text));
+        if (mb_strlen($text) > $limit) {
+            $text = mb_substr($text, 0, $limit) . '...';
+        }
+        return $text;
+    }
 }
