@@ -1,6 +1,17 @@
 {
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/NolwennWM/router-php.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/NolwennWM/renderer-php.git"
+        }
+    ],
     "require": {
-        "phpmailer/phpmailer": "^6.10"
+        "phpmailer/phpmailer": "^6.10",
+        "nwm/router-php": "^0.1"
     },
     "autoload": {
         "psr-4": {

@@ -4,8 +4,85 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cb5da62d73716ac8a1776f19367bc28f",
+    "content-hash": "781421eeb5961fa5e1b33f98073c6102",
     "packages": [
+        {
+            "name": "nwm/renderer-php",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/NolwennWM/renderer-php.git",
+                "reference": "d99428363488757e9e99c3bf806ff6b8b4eb10d8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/NolwennWM/renderer-php/zipball/d99428363488757e9e99c3bf806ff6b8b4eb10d8",
+                "reference": "d99428363488757e9e99c3bf806ff6b8b4eb10d8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "NWM\\Renderer\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nolwenn WEBER-MARQUISET"
+                }
+            ],
+            "description": "Une petite librairie PHP qui fournit un moteur de rendu simple.",
+            "support": {
+                "source": "https://github.com/NolwennWM/renderer-php/tree/v0.1.0",
+                "issues": "https://github.com/NolwennWM/renderer-php/issues"
+            },
+            "time": "2025-09-11T14:26:40+00:00"
+        },
+        {
+            "name": "nwm/router-php",
+            "version": "v0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/NolwennWM/router-php.git",
+                "reference": "afb8ac2dc70621ebb256b5aa386c4962bf1cd5de"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/NolwennWM/router-php/zipball/afb8ac2dc70621ebb256b5aa386c4962bf1cd5de",
+                "reference": "afb8ac2dc70621ebb256b5aa386c4962bf1cd5de",
+                "shasum": ""
+            },
+            "require": {
+                "nwm/renderer-php": "^0.1",
+                "php": ">=8.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "NWM\\Router\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nolwenn WEBER-MARQUISET"
+                }
+            ],
+            "description": "Une petite librairie PHP qui fournit un routeur simple.",
+            "support": {
+                "source": "https://github.com/NolwennWM/router-php/tree/v0.1.1",
+                "issues": "https://github.com/NolwennWM/router-php/issues"
+            },
+            "time": "2025-09-15T14:24:15+00:00"
+        },
         {
             "name": "phpmailer/phpmailer",
             "version": "v6.10.0",
@@ -91,10 +168,10 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {},
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "platform": {},
+    "platform-dev": {},
+    "plugin-api-version": "2.6.0"
 }
